@@ -1,0 +1,22 @@
+@import "~style";
+
+.@{prefix}-datatype {
+  max-height: 60vh;
+  overflow: auto;
+  &-title {
+    margin: 10px 10px;
+    width: 110px;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    & > span:first-child {
+      display: inline-block;
+      width: 2px;
+      background: @primary-color;
+      height: 15px;
+      margin-right: 5px;
+    }
+  }
+}

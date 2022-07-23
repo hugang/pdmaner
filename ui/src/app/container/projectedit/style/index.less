@@ -1,0 +1,40 @@
+@import "~style";
+
+.@{prefix}-pro-edit {
+  .@{prefix}-form-item-component {
+    img {
+      width: 21px;
+      height: 21px;
+      vertical-align: bottom;
+    }
+  }
+  &-img-list {
+    margin-bottom: 10px;
+    max-height: 400px;
+    overflow: auto;
+    padding: 0 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &-item-selected {
+      border: 2px solid @primary-color;
+    }
+    &-item-normal {
+      border: 2px solid transparent;
+    }
+    & > div {
+      margin: 0 5px;
+      cursor: pointer;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      & > img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}

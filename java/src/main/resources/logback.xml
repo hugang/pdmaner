@@ -1,0 +1,44 @@
+<configuration scan="true" scanPeriod="1800 seconds" debug="false">
+    <!-- 设置 logger context 名称,一旦设置不可改变，默认为default -->
+    <contextName>SINER-JAVA</contextName>
+    <!-- 定义日志文件名称,与工程名一致 -->
+    <property name="APP_NAME" value="chiner" />
+    <!-- 定义日志的根目录  可以手动指定绝对路径  如：<property name="LOG_HOME" value="绝对路径(用正斜杠代替反斜杠或者双反斜杠来分隔目录级次)" /> -->
+    <!--也可以用define标签自己在代码中动态指定根目录，LogHomeProperty类后面附上 -->
+    <define name="LOG_HOME" class="cn.com.chiner.java.log.LogHomeProperty" />
+    <timestamp key="byDay" datePattern="yyyy-MM-dd"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--配置日志文件(File)-->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--设置策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件路径：这里%d{yyyyMMdd}表示按天分类日志-->
+            <FileNamePattern>${LOG_HOME}/logs/${APP_NAME}/runtime-%d{yyyy-MM-dd}.log</FileNamePattern>
+            <!--日志保留天数-->
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <!--设置格式-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <charset>utf8</charset>
+        </encoder>
+        <!--日志文件最大的大小-->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>100MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+
+</configuration>

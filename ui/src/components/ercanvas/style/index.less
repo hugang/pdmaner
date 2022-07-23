@@ -1,0 +1,128 @@
+@import "~style";
+
+.@{prefix}-relation-editor {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  &-right {
+    margin-left: 10px;
+  }
+  &-open-entity {
+    text-align: center;
+  }
+}
+.@{prefix}-relation {
+  &-container {
+    outline: none;
+    position: relative;
+  }
+  &-title {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+.@{prefix}-label-editor {
+  margin-bottom: 5px;
+  width: 100%;
+  input {
+    width: 100%;
+  }
+}
+.minmap-container {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 24px;
+  height: 210px;
+  padding: 5px;
+  background: #FFFFFF;
+}
+.minmap-view {
+  top: 7.5px;
+  left: 7.5px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(0,0,0,.1);
+  position: absolute;
+  margin: -2px 0 0 -2px;
+  cursor: move;
+
+}
+.minmap-canvas {
+
+}
+.ercanvas-menus {
+  outline: none;
+  position: fixed;
+  background: @primary-border-color;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      user-select: none;
+      padding: 2.5px 5px;
+      cursor: pointer;
+    }
+    li:hover {
+      color: @background-color;
+    }
+  }
+}
+.x6-graph-scroller.x6-graph-scroller-pannable {
+  cursor: default;
+}
+.@{prefix}-er-minimapContainer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 999;
+  textarea {
+    pointer-events: none;
+  }
+  border-radius: 2px;
+  box-shadow: 0 0 4px 0 @primary-border-color;
+}
+.@{prefix}-er-search {
+  position: absolute;
+  right: 40px;
+  top: 5px;
+  z-index: 1;
+  //opacity: 0;
+}
+.@{prefix}-er-find-entity {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &-list {
+    overflow: auto;
+    background: @background-color;
+    border: @primary-border-color;
+    box-shadow: 0 0 6px 2px @primary-border-color;
+    max-height: 300px;
+    white-space: nowrap;
+    padding: 5px;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    left: 0;
+    & > div {
+      &:hover {
+        background: @primary-color;
+        color: @background-color;
+        a {
+          color: @background-color !important;
+        }
+      }
+      cursor: pointer;
+    }
+    & > div + div {
+      margin-top: 3px;
+    }
+  }
+}

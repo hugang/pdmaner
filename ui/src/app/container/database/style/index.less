@@ -1,0 +1,127 @@
+@import "~style";
+.title(){
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+.@{prefix}-database-container {
+  height: 100%;
+  &-defaultdb-message {
+    margin-left: 5px;
+    white-space: nowrap;
+    color: @success-color;
+    text-overflow: ellipsis
+  }
+  .@{prefix}-form-item-label {
+    width: 150px;
+  }
+  &-tab {
+    border-top: 1px solid @primary-border-color;
+    & > div:first-child {
+      background: #FFFFFF;
+    }
+    & > div:first-child > span {
+      box-shadow: none;
+      border-radius: 0;
+      border: none;
+    }
+    & > div:first-child > span[class$='active'] {
+      border-bottom: 2px solid @primary-color;
+    }
+  }
+}
+.@{prefix}-message-component {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+.@{prefix}-preview {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &-left {
+    width: 28%;
+    &-title {
+      .title();
+    }
+  }
+  &-data {
+    width: 70%;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+  }
+  &-center {
+    width: 100%;
+    height: 50%;
+    &-title {
+      .title();
+    }
+  }
+  &-right {
+    width: 100%;
+    height: 50%;
+    &-title {
+      .title();
+    }
+  }
+}
+.@{prefix}-code-editor-content {
+  &-opt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+    span {
+      cursor: pointer;
+      color: @success-color;
+      border-bottom: 1px solid @success-color;
+    }
+  }
+}
+.@{prefix}-database-list {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  &-left {
+    height: 80vh;
+    overflow: auto;
+    flex-grow: 1;
+  }
+  &-right {
+    width: 40%;
+  }
+}
+.@{prefix}-database-dothelp {
+  margin-bottom: 5px;
+  padding: 5px;
+  height: 400px;
+  overflow: auto;
+  text-align: left;
+  & > div {
+    padding: 5px;
+    & > div + div {
+      margin-top: 5px;
+    }
+  }
+  table {
+    margin-top: 5px;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-left: 1px solid @primary-border-color;
+    border-bottom: 1px solid @primary-border-color;
+    th {
+      padding: 3px;
+      font-weight: normal;
+      border-top: 1px solid @primary-border-color;
+      border-right: 1px solid @primary-border-color;
+    }
+    tr:nth-child(2n) {
+      th {
+        background-color: @tr-background;
+      }
+    }
+  }
+}

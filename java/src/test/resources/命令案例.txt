@@ -1,0 +1,17 @@
+数据库连接测试：
+PingLoadDriverClass driver_class_name=com.mysql.cj.jdbc.Driver url=jdbc:mysql://127.0.0.1:3306/vbcms?useUnicode=true&characterEncoding=UTF-8 username=fisok password=fisok2020 out=/Users/asher/workspace/ws-vekai/siner-java/src/test/resources/out/pdc-123.json
+
+列出数据表：
+DBReverseGetAllTablesList driver_class_name=com.mysql.cj.jdbc.Driver url=jdbc:mysql://127.0.0.1:3306/vbcms?useUnicode=true&characterEncoding=UTF-8 username=fisok password=fisok2020 out=/Users/asher/workspace/ws-vekai/siner-java/src/test/resources/out/dbrgatl-123.json
+
+取具体表的DDL：
+DBReverseGetTableDDL driver_class_name=com.mysql.cj.jdbc.Driver url=jdbc:mysql://127.0.0.1:3306/vbcms?useUnicode=true&characterEncoding=UTF-8 username=fisok password=fisok2020 tables=cust_base,cust_ent out=/Users/asher/workspace/ws-vekai/siner-java/src/test/resources/out/dbrgtddl-123.json
+
+生成WORD文档：
+GenDocx sinerFile=/Users/asher/workspace/ws-vekai/siner-java/src/test/resources/siner/教学管理系统.sinoper.json docxTpl=/Users/asher/workspace/ws-vekai/siner-java/src/test/resources/tpl/siner-docx-tpl.docx imgDir=/Users/asher/workspace/ws-fisok/pdman-java-connector/src/test/resources/pdman-file/crops_files imgExt=.png outFile=/Users/asher/workspace/ws-vekai/siner-java/src/test/resources/out/siner-123.docx out=/Users/asher/workspace/ws-vekai/siner-java/src/test/resources/out/gendocx-123.json
+
+解析PDM文件：
+ParsePDMFile pdmFile=/Users/asher/workspace/ws-vekai/siner-java/src/test/resources/siner/JEKI-WIKI文章模块.pdm.xml out=/Users/asher/workspace/ws-vekai/siner-java/src/test/resources/out/import-pdm-123.json
+
+解析字典EXCEL文件：
+ParseDictExcel excelFile=/Users/yangsong158/workspace/ws-chiner/chiner-java/src/test/resources/数据字典模板.xlsx out=/Users/yangsong158/workspace/ws-chiner/chiner-java/src/test/resources/out/import-dict-excel-123.json

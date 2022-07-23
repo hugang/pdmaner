@@ -1,0 +1,44 @@
+@import "~style";
+
+.@{prefix}-tree {
+  height: 100%;
+  &-container {
+    &-ul {
+      li {
+        padding: 2px;
+      }
+      &-parent {
+        &-show {
+          & > i {
+            cursor: pointer;
+            margin-right: 2px;
+            transform: rotate(0deg);
+          }
+        }
+        &-hidden {
+          & > i {
+            cursor: pointer;
+            margin-right: 2px;
+            transform: rotate(-90deg);
+          }
+        }
+      }
+      &-child {
+        &-show {
+          display: inline-block;
+        }
+        &-hidden {
+          display: none;
+        }
+      }
+    }
+  }
+  &-all {
+    padding: 5px;
+    height: 100%;
+    & > ul {
+      height: calc(100% - 30px);
+      overflow: auto;
+    }
+  }
+}

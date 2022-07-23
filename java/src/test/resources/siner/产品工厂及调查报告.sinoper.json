@@ -1,0 +1,4178 @@
+{
+  "name": "产品工厂及调查报告",
+  "describe": "平安银行产品工厂以及调查报告关键业务对象设计",
+  "avatar": "",
+  "version": "3.2.0",
+  "createdTime": "2021-6-16 10:14:00",
+  "updatedTime": "2021-9-3 14:33:49",
+  "dbConns": [],
+  "profile": {
+    "default": {
+      "db": "ORACLE",
+      "dbConn": "",
+      "entityInitFields": [
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "Int",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATE",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATE",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        }
+      ]
+    },
+    "javaHome": "",
+    "sql": {
+      "delimiter": ""
+    },
+    "dataTypeSupports": [
+      "MYSQL",
+      "ORACLE",
+      "SQLServer",
+      "PostgreSQL",
+      "JAVA"
+    ],
+    "codeTemplates": [
+      {
+        "applyFor": "MYSQL",
+        "referURL": "",
+        "type": "dbDDL",
+        "createTable": "CREATE TABLE {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.notNull ? 'NOT NULL' : '' }} {{= field.autoIncrement ? 'AUTO_INCREMENT' : '' }} {{= field.defaultValue ? it.func.join('DEFAULT',field.defaultValue,' ') : '' }} COMMENT '{{=it.func.join(field.chnname,field.remark,' ')}}' {{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n) COMMENT = '{{=it.func.join(it.entity.chnname,it.entity.remark,' ') }}';{{=it.separator}}\n$blankline\n",
+        "updateTable": "create table PDMAN_UP_{{=it.oldEntity.title}}\nas select * from {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\ndrop table {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\nCREATE TABLE {{=it.newEntity.title}}(\n{{ pkList = [] ; }}\n{{~it.newEntity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.notNull ? 'NOT NULL' : '' }} COMMENT '{{=it.func.join(field.chnname,field.remark,';')}}' {{= index < it.newEntity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n) COMMENT = '{{=it.func.join(it.newEntity.chnname,it.newEntity.remark,';') }}';{{=it.separator}}\n$blankline\n\n{{ sameCols = it.func.intersect(it.newEntity.fields,it.oldEntity.fields) ;}}\ninsert into {{=it.newEntity.title}}(\n{{~sameCols:field:index}}\n    {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}\n) \nselect \n{{~sameCols:field:index}}\n    {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}\nfrom PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\ndrop table PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n{{~it.newEntity.indexs:index}}\nALTER TABLE {{=it.newEntity.title}} ADD {{? index.isUnique}}UNIQUE{{??}}INDEX{{?}} {{=index.name}}({{=it.func.join(...index.fields,',')}});{{=it.separator}}\n{{~}}",
+        "dropTable": "DROP TABLE {{=it.entity.title}};{{=it.separator}}/*SkipError*/",
+        "createField": "ALTER TABLE {{=it.entity.title}} ADD COLUMN {{=it.field.name}} {{=it.field.type}} {{? it.field.notNull}}NOT NULL{{?}} {{? it.field.defaultValue}}DEFAULT {{? null==it.field.defaultValue}}NULL{{??}}'{{=it.field.defaultValue}}'{{?}}{{?}} {{? it.field.autoIncrement}}AUTO_INCREMENT{{?}} {{? it.field.pk}}PRIMARY KEY{{?}} {{? it.field.chnname}}COMMENT '{{=it.field.chnname}}'{{?}} {{? it.field.addAfter}}AFTER {{=it.field.addAfter}}{{?}};{{=it.separator}}",
+        "updateField": "ALTER TABLE {{=it.entity.title}} MODIFY COLUMN {{=it.field.name}} {{=it.field.type}} {{? it.field.notNull}}NOT NULL{{?}} {{? it.field.defaultValue}}DEFAULT {{? null==it.field.defaultValue}}NULL{{??}}'{{=it.field.defaultValue}}'{{?}}{{?}} {{? it.field.autoIncrement}}AUTO_INCREMENT{{?}} {{? it.field.chnname}}COMMENT '{{=it.field.chnname}}'{{?}};{{=it.separator}}",
+        "dropField": "ALTER TABLE {{=it.entity.title}} DROP {{=it.field.name}};{{=it.separator}}",
+        "createIndex": "ALTER TABLE {{=it.entity.title}} ADD {{? it.index.isUnique}}UNIQUE{{??}}INDEX{{?}} {{=it.index.name}}({{=it.func.join(...it.index.fields,',')}});{{=it.separator}}",
+        "dropIndex": "ALTER TABLE {{=it.entity.title}} DROP INDEX {{=it.index.name}};{{=it.separator}}",
+        "updateComment": "ALTER TABLE {{=it.entity.title}} COMMENT '{{=it.entity.chnname}}';{{=it.separator}}"
+      },
+      {
+        "type": "dbDDL",
+        "applyFor": "ORACLE",
+        "createTable": "CREATE TABLE {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}}{{? field.defaultValue}} DEFAULT {{=field.defaultValue}}{{?}}{{= field.notNull ? ' NOT NULL' : '' }}{{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n);{{=it.separator}}\n$blankline\n{{? it.entity.chnname || it.entity.remark}}COMMENT ON TABLE {{=it.entity.title}} IS {{? it.entity.remark}}'{{=it.entity.remark}}'{{??}}'{{=it.entity.chnname}}'{{?}};{{=it.separator}}{{?}}\n{{~it.entity.fields:field:index}}\n{{? field.chnname || field.remark}}COMMENT ON COLUMN {{=it.entity.title}}.{{=field.name}} IS {{? field.remark}}'{{=field.remark}}'{{??}}'{{=field.chnname}}'{{?}};{{=it.separator}}{{?}}\n{{~}}",
+        "updateTable": "CREATE TABLE PDMAN_UP_{{=it.oldEntity.title}}\nAS SELECT * FROM {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\nDROP TABLE {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\nCREATE TABLE {{=it.newEntity.title}}(\n{{ pkList = [] ; }}{{~it.newEntity.fields:field:index}}{{? field.pk }}{{ pkList.push(field.name) }}{{?}}    {{=field.name}} {{=field.type}}{{? field.defaultValue}} DEFAULT {{=field.defaultValue}}{{?}}{{= field.notNull ? ' NOT NULL' : '' }}{{= index < it.newEntity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}{{? pkList.length >0 }}    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}}){{?}}\n);{{=it.separator}}\n$blankline\n{{? it.newEntity.chnname || it.newEntity.remark}}COMMENT ON TABLE {{=it.newEntity.title}} IS {{? it.newEntity.remark}}'{{=it.entity.remark}}'{{??}}'{{=it.newEntity.chnname}}'{{?}};{{?}}{{=it.separator}}\n{{~it.newEntity.fields:field:index}}\n{{? field.chnname || field.remark}}COMMENT ON COLUMN {{=it.newEntity.title}}.{{=field.name}} IS {{? field.remark}}'{{=field.remark}}'{{??}}'{{=field.chnname}}'{{?}};{{?}}{{=it.separator}}\n{{~}}\n{{ sameCols = it.func.intersect(it.newEntity.fields,it.oldEntity.fields) ;}}\n$blankline\nINSERT INTO {{=it.newEntity.title}}(\n{{~sameCols:field:index}}   {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}) \nSELECT\n{{~sameCols:field:index}}   {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}FROM PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}\n\nDROP TABLE PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}\n{{~it.newEntity.indexs:index}}\nCREATE{{? index.isUnique}} UNIQUE{{?}} INDEX {{=index.name}} ON {{=it.newEntity.title}}({{=it.func.join(index.fields,',')}});{{=it.separator}}\n{{~}}",
+        "dropTable": "DROP TABLE {{=it.entity.title}};{{=it.separator}}/*SkipError*/\r\n$blankline",
+        "createField": "ALTER TABLE {{=it.entity.title}} ADD({{=it.field.name}} {{=it.field.type}}{{? it.field.defaultValue}} DEFAULT {{=it.field.defaultValue}}{{?}}{{? it.field.notNull}} NOT NULL{{?}});{{=it.separator}}\r\n{{? it.field.chnname || it.field.remark}}COMMENT ON COLUMN {{=it.entity.title}}.{{=it.field.name}} IS {{? it.field.remark}}'{{=it.field.remark}}'{{??}}'{{=it.field.chnname}}'{{?}};{{=it.separator}}{{?}}\r\n$blankline",
+        "updateField": "ALTER TABLE {{=it.entity.title}} MODIFY({{=it.field.name}} {{=it.field.type}}{{? it.field.defaultValue}} DEFAULT {{=it.field.defaultValue}}{{?}}{{? it.field.notNull}} NOT NULL{{?}});{{=it.separator}}\r\n{{? it.field.chnname || it.field.remark}}COMMENT ON COLUMN {{=it.entity.title}}.{{=it.field.name}} IS {{? it.field.remark}}'{{=it.field.remark}}'{{??}}'{{=it.field.chnname}}'{{?}};{{=it.separator}}{{=it.separator}}{{?}}\r\n$blankline",
+        "dropField": "ALTER TABLE {{=it.entity.title}} DROP({{=it.field.name}});{{=it.separator}}\r\n$blankline",
+        "createIndex": "CREATE{{? it.index.isUnique}} UNIQUE{{?}} INDEX {{=it.index.name}} ON {{=it.entity.title}}({{=it.func.join(it.index.fields,',')}});{{=it.separator}}\r\n$blankline",
+        "dropIndex": "DROP INDEX {{=it.entity.title}}.{{=it.index.name}};{{=it.separator}}\r\n$blankline",
+        "updateComment": "{{? it.entity.chnname || it.entity.remark}}COMMENT ON TABLE {{=it.entity.title}} IS {{? it.entity.remark}}'{{=it.entity.remark}}'{{??}}'{{=it.entity.chnname}}'{{?}};{{=it.separator}}{{?}}\r\n$blankline"
+      },
+      {
+        "applyFor": "SQLServer",
+        "referURL": "",
+        "type": "dbDDL",
+        "createTable": "CREATE TABLE {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.notNull ? 'NOT NULL' : '' }} {{= field.autoIncrement ? 'IDENTITY(1,1)' : '' }} {{= field.defaultValue ? it.func.join('DEFAULT',field.defaultValue,' ') : '' }}  {{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    CONSTRAINT PK_{{=it.entity.title}} PRIMARY KEY CLUSTERED ({{~pkList:pkName:i}}{{= pkName }} ASC {{= i<pkList.length-1 ? ',' : '' }}{{~}}) ON [PRIMARY] \n{{?}}\n) ;{{=it.separator}}\n\n$blankline\nEXECUTE sp_addextendedproperty N'MS_Description', '{{= it.entity.chnname || it.entity.remark}}', N'user', N'dbo', N'table', N'{{=it.entity.title}}', NULL, NULL;{{=it.separator}}\n{{~it.entity.fields:field:index}}\n{{? field.chnname || field.remark}}EXECUTE sp_addextendedproperty N'MS_Description', {{? field.remark}}'{{=field.remark}}'{{??}}'{{=field.chnname}}'{{?}}, N'user', N'dbo', N'table', N'{{=it.entity.title}}', N'column', N'{{=field.name}}';{{=it.separator}}{{?}}\n{{~}}\n",
+        "updateTable": "",
+        "dropTable": "",
+        "createField": "",
+        "updateField": "",
+        "dropField": "",
+        "createIndex": "",
+        "dropIndex": "",
+        "updateComment": ""
+      },
+      {
+        "applyFor": "PostgreSQL",
+        "referURL": "",
+        "type": "dbDDL",
+        "createTable": "CREATE TABLE {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}}{{? field.defaultValue}} DEFAULT {{=field.defaultValue}}{{?}}{{= field.notNull ? ' NOT NULL' : '' }}{{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n);{{=it.separator}}\n$blankline\n{{? it.entity.chnname || it.entity.remark}}COMMENT ON TABLE {{=it.entity.title}} IS {{? it.entity.remark}}'{{=it.entity.remark}}'{{??}}'{{=it.entity.chnname}}'{{?}};{{=it.separator}}{{?}}\n{{~it.entity.fields:field:index}}\n{{? field.chnname || field.remark}}COMMENT ON COLUMN {{=it.entity.title}}.{{=field.name}} IS {{? field.remark}}'{{=field.remark}}'{{??}}'{{=field.chnname}}'{{?}};{{=it.separator}}{{?}}\n{{~}}",
+        "updateTable": "create table PDMAN_UP_{{=it.oldEntity.title}}\nas select * from {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\ndrop table {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\nCREATE TABLE {{=it.newEntity.title}}(\n{{ pkList = [] ; }}\n{{~it.newEntity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.notNull ? 'NOT NULL' : '' }} COMMENT '{{=it.func.join(field.chnname,field.remark,';')}}' {{= index < it.newEntity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n) COMMENT = '{{=it.func.join(it.newEntity.chnname,it.newEntity.remark,';') }}';{{=it.separator}}\n$blankline\n\n{{ sameCols = it.func.intersect(it.newEntity.fields,it.oldEntity.fields) ;}}\ninsert into {{=it.newEntity.title}}(\n{{~sameCols:field:index}}\n    {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}\n) \nselect \n{{~sameCols:field:index}}\n    {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}\nfrom PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\ndrop table PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}",
+        "dropTable": "DROP TABLE {{=it.entity.title}};{{=it.separator}}/*SkipError*/",
+        "createField": "ALTER TABLE {{=it.entity.title}} ADD COLUMN {{=it.field.name}} {{=it.field.type}} {{? it.field.notNull}}NOT NULL{{?}} {{? it.field.defaultValue}}DEFAULT {{? null==it.field.defaultValue}}NULL{{??}}'{{=it.field.defaultValue}}'{{?}}{{?}} {{? it.field.autoIncrement}}AUTO_INCREMENT{{?}} {{? it.field.pk}}PRIMARY KEY{{?}} {{? it.field.chnname}}COMMENT '{{=it.field.chnname}}'{{?}} {{? it.field.addAfter}}AFTER {{=it.field.addAfter}}{{?}};{{=it.separator}}",
+        "updateField": "ALTER TABLE {{=it.entity.title}} MODIFY COLUMN {{=it.field.name}} {{=it.field.type}} {{? it.field.notNull}}NOT NULL{{?}} {{? it.field.defaultValue}}DEFAULT {{? null==it.field.defaultValue}}NULL{{??}}'{{=it.field.defaultValue}}'{{?}}{{?}} {{? it.field.autoIncrement}}AUTO_INCREMENT{{?}} {{? it.field.chnname}}COMMENT '{{=it.field.chnname}}'{{?}};{{=it.separator}}",
+        "dropField": "ALTER TABLE {{=it.entity.title}} DROP {{=it.field.name}};{{=it.separator}}",
+        "createIndex": "ALTER TABLE {{=it.entity.title}} ADD {{? it.index.isUnique}}UNIQUE{{??}}INDEX{{?}} {{=it.index.name}}({{=it.func.join(...it.index.fields,',')}});{{=it.separator}}",
+        "dropIndex": "ALTER TABLE {{=it.entity.title}} DROP INDEX {{=it.index.name}};{{=it.separator}}",
+        "updateComment": "ALTER TABLE {{=it.entity.title}} COMMENT '{{=it.entity.chnname}}';{{=it.separator}}"
+      },
+      {
+        "applyFor": "JAVA",
+        "referURL": "",
+        "type": "appCode",
+        "content": "package group.rober.pdman.{{=it.module.name}}.entity;\n$blankline\nimport javax.persistence.*;\nimport java.io.Serializable;\nimport java.util.Date;\n$blankline\n$blankline\n@Table(name=\"{{=it.entity.title}}\")\npublic class {{=it.func.camel(it.entity.title,true) }} implements Serializable,Cloneable{\n{{~it.entity.fields:field:index}}\n    /** {{=it.func.join(field.chnname,field.remark,';')}} */\n    {{? field.pk }}\n    @Id\n    @GeneratedValue\n    {{?}}\n    private {{=field.type}} {{=it.func.camel(field.name,false)}} ;\n{{~}}\n$blankline\n{{~it.entity.fields:field:index}}\n    /** {{=it.func.join(field.chnname,field.remark,';')}} */\n    public {{=field.type}} get{{=it.func.camel(field.name,true)}}(){\n        return this.{{=it.func.camel(field.name,false)}};\n    }\n    /** {{=it.func.join(field.chnname,field.remark,';')}} */\n    public void set{{=it.func.camel(field.name,true)}}({{=field.type}} {{= it.func.camel(field.name,false) }}){\n        this.{{=it.func.camel(field.name,false)}} = {{= it.func.camel(field.name,false) }};\n    }\n{{~}}\n}"
+      },
+      {
+        "type": "dbDDL",
+        "applyFor": "dictSQLTemplate",
+        "content": "/* 插入字典总表[{{=it.dict.defKey}}-{{=it.dict.defName}}] */\nINSERT INTO SYS_DICT(KEY_,LABEL,INTRO,REVISION) VALUES('{{=it.dict.defKey}}','{{=it.dict.defName}}','{{=it.dict.intro}}',1);\n/* 插入字典明细表 */\n{{~it.dict.items:item:index}}\nINSERT INTO SYS_DICT_ITEM(DICT_KEY,KEY_,LABEL,SORT_,INTRO,REVISION) VALUES('{{=it.dict.defKey}}','{{=item.defKey}}','{{=item.defName}}','{{=item.sort}}','{{=item.intro}}',1);\n{{~}}"
+      }
+    ],
+    "generatorDoc": {
+      "docTemplate": ""
+    },
+    "modelType": "modalGroup",
+    "uiHint": [
+      {
+        "defKey": "Input",
+        "defName": "普通输入框"
+      },
+      {
+        "defKey": "Select",
+        "defName": "下拉输入框"
+      },
+      {
+        "defKey": "CheckBox",
+        "defName": "复选框"
+      },
+      {
+        "defKey": "RadioBox",
+        "defName": "单选框"
+      },
+      {
+        "defKey": "Double",
+        "defName": "小数输入"
+      },
+      {
+        "defKey": "Integer",
+        "defName": "整数输入"
+      },
+      {
+        "defKey": "Money",
+        "defName": "金额输入"
+      },
+      {
+        "defKey": "Date",
+        "defName": "日期输入"
+      },
+      {
+        "defKey": "DataYearMonth",
+        "defName": "年月输入"
+      },
+      {
+        "defKey": "Text",
+        "defName": "长文本输入"
+      },
+      {
+        "defKey": "RichText",
+        "defName": "富文本输入"
+      }
+    ]
+  },
+  "entities": [
+    {
+      "defKey": "FRPT_NEW_MODEL",
+      "defName": "模板信息表",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "SERIALNO",
+          "defName": "模板流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "MODELNAME",
+          "defName": "模板名称",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Name"
+        },
+        {
+          "defKey": "MODELSTATUS",
+          "defName": "模板状态",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "STRUCTUREDCATALOG",
+          "defName": "模板结构化信息",
+          "comment": "",
+          "type": "CLOB",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "LargeText"
+        },
+        {
+          "defKey": "RELATIVEMODELSERIALNO",
+          "defName": "关联的审查报告流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "MODELTYPE",
+          "defName": "模板类型",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "TABLE_1",
+      "defName": "数据表",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "REVISION",
+          "defName": "REVISION",
+          "comment": "",
+          "domain": "Int",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "CREATED_BY",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "CREATED_TIME",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "UPDATED_BY",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "UPDATED_TIME",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "FRPT_NEW_CATALOG",
+      "defName": "模板目录信息表",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "SERIALNO",
+          "defName": "模板目录流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "CATALOGNO",
+          "defName": "目录编号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "CATALOGNAME",
+          "defName": "目录名称",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Name"
+        },
+        {
+          "defKey": "CATALOGMODE",
+          "defName": "目录选择模式",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "RULECLASS",
+          "defName": "规则Java类",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "VALUECLASS",
+          "defName": "取值Java类",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "SECONDARYSERIALNOS",
+          "defName": "下级目录流水号集合",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "3000",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "LongString"
+        },
+        {
+          "defKey": "CATALOGSTATUS",
+          "defName": "公共目录状态",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "RELATIVETYPE",
+          "defName": "关联类型",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "SELECTOR",
+          "defName": "前端组件",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "FRPT_NEW_GROUP",
+      "defName": "参数分组",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "SERIALNO",
+          "defName": "分组流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "GROUPNAME",
+          "defName": "分组名称",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Name"
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "FRPT_NEW_RELA",
+      "defName": "模板一级目录关系表",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "SERIALNO",
+          "defName": "流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "MODELSERIALNO",
+          "defName": "模板流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "CATALOGSERIALNO",
+          "defName": "模板目录流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "FRPT_NEW_PARAM",
+      "defName": "参数信息",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "SERIALNO",
+          "defName": "参数流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "PARAMNO",
+          "defName": "参数编号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "PARAMNAME",
+          "defName": "参数名称",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Name"
+        },
+        {
+          "defKey": "PARAMTYPE",
+          "defName": "参数类型",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "REQUIRED",
+          "defName": "是否必需",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "1",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "YesNo"
+        },
+        {
+          "defKey": "GROUPSERIALNO",
+          "defName": "参数所属流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "SAVEDDATACONF",
+          "defName": "保存数据配置",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "3000",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "LongString"
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "BUSINESS_RECORD_RELA_NEW",
+      "defName": "产品模板关联表",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "MODELSERIALNO",
+          "defName": "模板流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "APPLYTYPE",
+          "defName": "申请类型",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "PRODUCTTYPE",
+          "defName": "产品类型",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "CREDITTYPE",
+          "defName": "额度类型",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "BUSINESSTYPE",
+          "defName": "业务类型",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "FRPT_NEW_DOC_RECORD",
+      "defName": "报告记录信息表",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "SERIALNO",
+          "defName": "报告流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "OBJECTTYPE",
+          "defName": "业务类型",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "OBJECTNO",
+          "defName": "业务号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "MODELSERIALNO",
+          "defName": "模板流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "AUTOVALUE",
+          "defName": "自动参数值",
+          "comment": "",
+          "type": "CLOB",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "LargeText"
+        },
+        {
+          "defKey": "MANUALVALUE",
+          "defName": "手动输入参数值",
+          "comment": "",
+          "type": "CLOB",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "LargeText"
+        },
+        {
+          "defKey": "STATUS",
+          "defName": "报告状态",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "STRUCTREDCATALOG",
+          "defName": "报告结构化信息",
+          "comment": "",
+          "type": "CLOB",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "LargeText"
+        },
+        {
+          "defKey": "PARAM",
+          "defName": "生成报告的参数信息",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "3000",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "LongString"
+        },
+        {
+          "defKey": "RELATIVESERIALNO",
+          "defName": "关联调查报告流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "RECORDSTATUS",
+          "defName": "报告状态",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "FLOWTASKNO",
+          "defName": "流程流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "PHASELEVELNO",
+          "defName": "层级编号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "RELADOCNO",
+          "defName": "关联文档流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "RELAATTACHMENTNO",
+          "defName": "关联文档编号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "FRPT_NEW_DOC_RECORD_CATALOG",
+      "defName": "报告一级目录",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "SERIALNO",
+          "defName": "流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "RECORDSERIALNO",
+          "defName": "报告流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "OBJECTTYPE",
+          "defName": "对象类型",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "OBJECTNO",
+          "defName": "对象编号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "CATALOGSERIALNO",
+          "defName": "模板目录流水号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "CATALOGPRIMARYKEY",
+          "defName": "目录编号",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "RELATIVETYPE",
+          "defName": "目录主键",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "STRUCTUREDCATALOG",
+          "defName": "自动参数值",
+          "comment": "",
+          "type": "CLOB",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "LargeText"
+        },
+        {
+          "defKey": "MANUALVALUE",
+          "defName": "手动参数值",
+          "comment": "含自动",
+          "type": "CLOB",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "LargeText"
+        },
+        {
+          "defKey": "SAVESTATUS",
+          "defName": "保存状态",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict"
+        },
+        {
+          "defKey": "LASTSAVEFLAG",
+          "defName": "最近一次保存情况",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "JBOCLASSES",
+          "defName": "保存涉及的JBO类",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "3000",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "LongString"
+        },
+        {
+          "defKey": "ERRMESSAGE",
+          "defName": "参数颗粒化的错误信息",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "PLCY_TAXON",
+      "defName": "产品分类",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "REVISION",
+          "defName": "REVISION",
+          "comment": "",
+          "domain": "Int",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "CREATED_BY",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "CREATED_TIME",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "UPDATED_BY",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "UPDATED_TIME",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "PLCY_COMPONENT",
+      "defName": "产品组件",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "COMP_ID",
+          "defName": "组件ID",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "COMP_CODE",
+          "defName": "组件代码",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "COMP_SORT",
+          "defName": "组件排序码",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "COMP_NAME",
+          "defName": "组件名称",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Name"
+        },
+        {
+          "defKey": "COMP_INTRO",
+          "defName": "组件说明",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "900",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DescText"
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "Int",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "PLCY_PARAMETER",
+      "defName": "产品参数",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "defKey",
+          "hideInGraph": false,
+          "freeze": true,
+          "code": "name",
+          "value": "字段代码",
+          "newCode": "defKey",
+          "com": "Input",
+          "relationNoShow": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false,
+          "freeze": true,
+          "code": "chnname",
+          "value": "显示名称",
+          "newCode": "defName",
+          "com": "Input",
+          "relationNoShow": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false,
+          "code": "pk",
+          "value": "主键",
+          "newCode": "primaryKey",
+          "com": "Checkbox",
+          "relationNoShow": false,
+          "freeze": true
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true,
+          "code": "notNull",
+          "value": "不为空",
+          "newCode": "notNull",
+          "com": "Checkbox",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true,
+          "code": "autoIncrement",
+          "value": "自增",
+          "newCode": "autoIncrement",
+          "com": "Checkbox",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": false,
+          "code": "type",
+          "value": "数据域",
+          "newCode": "domain",
+          "com": "Select",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": true,
+          "code": "dataType",
+          "value": "数据类型",
+          "newCode": "type",
+          "com": "Text",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": true,
+          "code": "len",
+          "value": "长度",
+          "newCode": "len",
+          "com": "Input",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": true,
+          "code": "scale",
+          "value": "小数位数",
+          "newCode": "scale",
+          "com": "Input",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true,
+          "code": "remark",
+          "value": "说明",
+          "newCode": "remark",
+          "com": "Input",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true,
+          "code": "defaultValue",
+          "value": "默认值",
+          "newCode": "defaultValue",
+          "com": "Input",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true,
+          "code": "refDict",
+          "value": "数据字典",
+          "newCode": "refDict",
+          "com": "SearchSelect",
+          "relationNoShow": true,
+          "freeze": true
+        },
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true,
+          "freeze": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false,
+          "freeze": true
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "PARAM_ID",
+          "defName": "参数ID",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "PARAM_CODE",
+          "defName": "参数代码",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "PARAM_SORT",
+          "defName": "参数排序",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "PARAM_NAME",
+          "defName": "参数名称",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Name"
+        },
+        {
+          "defKey": "PARAM_INTRO",
+          "defName": "参数介绍",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "900",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DescText"
+        },
+        {
+          "defKey": "PARAM_TYPE",
+          "defName": "参数类型",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict",
+          "refDict": "ParamType"
+        },
+        {
+          "defKey": "CONTROL_TYPE",
+          "defName": "控制方式",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict",
+          "refDict": "ParamControlType"
+        },
+        {
+          "defKey": "DATA_TYPE",
+          "defName": "数据类型",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict",
+          "refDict": "ParamDataType"
+        },
+        {
+          "defKey": "DATA_VALUE_MODE",
+          "defName": "参数值控制模式",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict",
+          "refDict": "ParamDataValueMode"
+        },
+        {
+          "defKey": "IS_EXPRESSION",
+          "defName": "是否为公式",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "Dict",
+          "refDict": "YesNo"
+        },
+        {
+          "defKey": "VALUE_EXPR",
+          "defName": "参数值",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "VALUE_MIN_EXPR",
+          "defName": "参数值-最小值",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "VALUE_MAX_EXPR",
+          "defName": "参数值-最小值",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "DEFAULT_VALUE",
+          "defName": "默认值",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "EDITOR_MODE",
+          "defName": "配置界面编辑方式",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": "Dict",
+          "refDict": "ParamEditorMode"
+        },
+        {
+          "defKey": "EDITOR_SOURCE_MODE",
+          "defName": "界面选项来源方式",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "32",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": "Dict",
+          "refDict": "ParamEditorSourceMode"
+        },
+        {
+          "defKey": "EDITOR_SOURCE_DATA",
+          "defName": "配置界面选项数据源",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "3000",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": "LongString"
+        },
+        {
+          "defKey": "INST_EDITOR_MODE",
+          "defName": "应用场景编辑模式",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": ""
+        },
+        {
+          "defKey": "INST_DETECTOR_BLOCK_TYPE",
+          "defName": "应用场景风控方式",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": ""
+        },
+        {
+          "defKey": "INST_ENABLE",
+          "defName": "应用场景是否启用",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": ""
+        },
+        {
+          "defKey": "INST_REQUIRED",
+          "defName": "应用场景是否必需",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": ""
+        },
+        {
+          "defKey": "UI_LAYOUT_MODE",
+          "defName": "标题内容布局",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": ""
+        },
+        {
+          "defKey": "UI_SPAN_ROWS",
+          "defName": "所占行数",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": ""
+        },
+        {
+          "defKey": "UI_SPAN_COLS",
+          "defName": "所占列数",
+          "comment": "",
+          "type": "VARCHAR2",
+          "len": "255",
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": ""
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "Int",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATE",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR2",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATE",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "PLCY_LIB_COMPONENT",
+      "defName": "产品组件库",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "REVISION",
+          "defName": "REVISION",
+          "comment": "",
+          "domain": "Int",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "CREATED_BY",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "CREATED_TIME",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "UPDATED_BY",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "UPDATED_TIME",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    },
+    {
+      "defKey": "PLCY_LIB_PARAMETER",
+      "defName": "产品参数库",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "REVISION",
+          "defName": "REVISION",
+          "comment": "",
+          "domain": "Int",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "CREATED_BY",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "CREATED_TIME",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "UPDATED_BY",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": 0,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "UPDATED_TIME",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false
+        }
+      ],
+      "correlations": [],
+      "indexs": []
+    }
+  ],
+  "views": [],
+  "dicts": [
+    {
+      "defKey": "YesNo",
+      "defName": "是否",
+      "sort": "",
+      "dictIntro": "",
+      "items": [
+        {
+          "defKey": "Y",
+          "defName": "是",
+          "sort": "",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "N",
+          "defName": "否",
+          "sort": "",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        }
+      ]
+    },
+    {
+      "defKey": "ParamControlType",
+      "defName": "参数控制方式",
+      "sort": "",
+      "dictIntro": "",
+      "items": [
+        {
+          "defKey": "OwnerCustomize",
+          "defName": "功能参数",
+          "sort": "1",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "InputControl",
+          "defName": "输入控制",
+          "sort": "2",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "DetectorItem",
+          "defName": "业务探查",
+          "sort": "3",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "AssignValue",
+          "defName": "默认赋值",
+          "sort": "4",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        }
+      ]
+    },
+    {
+      "defKey": "ParamType",
+      "defName": "产品参数类型",
+      "sort": "",
+      "dictIntro": "",
+      "items": [
+        {
+          "defKey": "01",
+          "defName": "表单元素",
+          "sort": "1",
+          "itemIntro": "不同业务场景差异化的表单元素",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "10",
+          "defName": "控制",
+          "sort": "2",
+          "itemIntro": "用于控制业务场景的",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "11",
+          "defName": "控制+表单元素",
+          "sort": "3",
+          "itemIntro": "既作为表单元素，也增加控制",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        }
+      ]
+    },
+    {
+      "defKey": "ParamDataType",
+      "defName": "参数数据类型",
+      "sort": "",
+      "dictIntro": "",
+      "items": [
+        {
+          "defKey": "String",
+          "defName": "字串",
+          "sort": "1",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "Double",
+          "defName": "小数",
+          "sort": "2",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "Integer",
+          "defName": "整数",
+          "sort": "3",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "Date",
+          "defName": "日期",
+          "sort": "4",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        }
+      ]
+    },
+    {
+      "defKey": "ParamDataValueMode",
+      "defName": "参数值控制模式",
+      "sort": "",
+      "dictIntro": "",
+      "items": [
+        {
+          "defKey": "Single",
+          "defName": "单值",
+          "sort": "1",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "Range",
+          "defName": "范围",
+          "sort": "2",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "Multi",
+          "defName": "多项",
+          "sort": "3",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        }
+      ]
+    },
+    {
+      "defKey": "ParamEditorMode",
+      "defName": "参数项配置编辑方式",
+      "sort": "",
+      "dictIntro": "",
+      "items": [
+        {
+          "defKey": "Text",
+          "defName": "文本框",
+          "sort": "",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "Select",
+          "defName": "下拉选择框",
+          "sort": "",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "TreeSelectPicker",
+          "defName": "树图选择框",
+          "sort": "",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "RadioBox",
+          "defName": "单项选择框",
+          "sort": "",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "CheckBox",
+          "defName": "多项选择框",
+          "sort": "",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "TextArea",
+          "defName": "多行文本框",
+          "sort": "",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "YesNo",
+          "defName": "是否",
+          "sort": "",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        }
+      ]
+    },
+    {
+      "defKey": "ParamEditorSourceMode",
+      "defName": "参数项选项来源方式",
+      "sort": "",
+      "dictIntro": "",
+      "items": [
+        {
+          "defKey": "Dict",
+          "defName": "数据字典",
+          "sort": "1",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "SQL",
+          "defName": "SQL查询",
+          "sort": "2",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        },
+        {
+          "defKey": "JSON",
+          "defName": "JSON数据",
+          "sort": "3",
+          "itemIntro": "",
+          "parentKey": "",
+          "itemEnabled": true,
+          "itemAttr1": "",
+          "itemAttr2": "",
+          "itemAttr3": ""
+        }
+      ]
+    }
+  ],
+  "viewGroups": [
+    {
+      "defKey": "PLCY",
+      "defName": "产品工厂",
+      "refEntities": [
+        "PLCY_TAXON",
+        "PLCY_COMPONENT",
+        "PLCY_LIB_COMPONENT",
+        "PLCY_LIB_PARAMETER",
+        "PLCY_PARAMETER"
+      ],
+      "refViews": [],
+      "refDiagrams": [
+        "PLCY.KeyEntities",
+        "PLCY.KeyTables"
+      ],
+      "refDicts": [
+        "YesNo",
+        "ParamControlType",
+        "ParamType",
+        "ParamDataType",
+        "ParamDataValueMode",
+        "ParamEditorMode",
+        "ParamEditorSourceMode"
+      ]
+    },
+    {
+      "defKey": "SMTC",
+      "defName": "格式化报告",
+      "refEntities": [
+        "FRPT_NEW_RELA",
+        "FRPT_NEW_CATALOG",
+        "FRPT_NEW_MODEL",
+        "FRPT_NEW_PARAM",
+        "FRPT_NEW_GROUP",
+        "BUSINESS_RECORD_RELA_NEW",
+        "FRPT_NEW_DOC_RECORD",
+        "FRPT_NEW_DOC_RECORD_CATALOG"
+      ],
+      "refViews": [],
+      "refDiagrams": [
+        "SMTC.KeyEntities",
+        "SMTC.OldEntities"
+      ],
+      "refDicts": [
+        "YesNo"
+      ]
+    }
+  ],
+  "dataTypeMapping": {
+    "referURL": "",
+    "mappings": [
+      {
+        "defKey": "string",
+        "defName": "字串",
+        "JAVA": "String",
+        "ORACLE": "VARCHAR2",
+        "MYSQL": "VARCHAR"
+      },
+      {
+        "defKey": "double",
+        "defName": "小数",
+        "JAVA": "Double",
+        "ORACLE": "DECIMAL",
+        "MYSQL": "NUMBER"
+      },
+      {
+        "defKey": "int",
+        "defName": "整数",
+        "JAVA": "Double",
+        "ORACLE": "INT",
+        "MYSQL": "INT"
+      },
+      {
+        "defKey": "date",
+        "defName": "日期",
+        "JAVA": "Date",
+        "ORACLE": "DATE",
+        "MYSQL": "DATETIME"
+      },
+      {
+        "defKey": "bytes",
+        "defName": "二进制",
+        "JAVA": "byte[]",
+        "ORACLE": "BLOB",
+        "MYSQL": "BLOB"
+      },
+      {
+        "defKey": "largeText",
+        "defName": "大文本",
+        "JAVA": "String",
+        "ORACLE": "CLOB",
+        "MYSQL": "TEXT"
+      }
+    ]
+  },
+  "domains": [
+    {
+      "defKey": "DefaultString",
+      "defName": "默认字串",
+      "applyFor": "string",
+      "len": "255",
+      "scale": "",
+      "uiHint": {}
+    },
+    {
+      "defKey": "IdOrKey",
+      "defName": "标识号",
+      "applyFor": "string",
+      "len": 32,
+      "scale": "",
+      "uiHint": {}
+    },
+    {
+      "defKey": "Name",
+      "defName": "名字",
+      "applyFor": "string",
+      "len": 90,
+      "scale": "",
+      "uiHint": {}
+    },
+    {
+      "defKey": "Int",
+      "defName": "整数",
+      "applyFor": "int",
+      "len": "",
+      "scale": "",
+      "uiHint": {}
+    },
+    {
+      "defKey": "Double",
+      "defName": "小数",
+      "applyFor": "double",
+      "len": "32",
+      "scale": "8",
+      "uiHint": {}
+    },
+    {
+      "defKey": "Money",
+      "defName": "金额",
+      "applyFor": "double",
+      "len": 32,
+      "scale": 8,
+      "uiHint": {}
+    },
+    {
+      "defKey": "DateTime",
+      "defName": "日期",
+      "applyFor": "date",
+      "len": "",
+      "scale": "",
+      "uiHint": {}
+    },
+    {
+      "defKey": "Dict",
+      "defName": "数据字典",
+      "applyFor": "string",
+      "len": "32",
+      "scale": "",
+      "uiHint": {}
+    },
+    {
+      "defKey": "DescText",
+      "defName": "描述文本",
+      "applyFor": "string",
+      "len": "900",
+      "scale": "",
+      "uiHint": {}
+    },
+    {
+      "defKey": "YesNo",
+      "defName": "是否",
+      "applyFor": "string",
+      "len": "1",
+      "scale": "",
+      "uiHint": {}
+    },
+    {
+      "defKey": "LongString",
+      "defName": "长字串",
+      "applyFor": "string",
+      "len": "3000",
+      "scale": "",
+      "uiHint": {}
+    },
+    {
+      "defKey": "LargeText",
+      "defName": "大文本",
+      "applyFor": "largeText",
+      "len": "",
+      "scale": "",
+      "uiHint": {}
+    }
+  ],
+  "diagrams": [
+    {
+      "defKey": "SMTC.KeyEntities",
+      "defName": "关键实体对象",
+      "canvasData": {
+        "cells": []
+      }
+    },
+    {
+      "defKey": "PLCY.KeyEntities",
+      "defName": "关键实体对象",
+      "canvasData": {
+        "cells": [
+          {
+            "id": "df39f37e-24b1-4291-a1bb-9bb900f1a989",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "65b76b12-1a31-47ca-a9a7-419357d90d1d",
+              "port": "out2"
+            },
+            "target": {
+              "cell": "404fab9a-c3ca-46ff-ac04-a2f45c23ea53",
+              "port": "in2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "70467a7e-e12d-462f-8500-63e7811d3137",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "404fab9a-c3ca-46ff-ac04-a2f45c23ea53",
+              "port": "out2"
+            },
+            "target": {
+              "cell": "b552db61-7085-4f44-8021-f0be0746e850",
+              "port": "in2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "6c6b8ab6-d1c7-445d-ac95-dc50ef1d7beb",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "b552db61-7085-4f44-8021-f0be0746e850",
+              "port": "out2"
+            },
+            "target": {
+              "cell": "9e9af066-7991-40fd-8264-0193b1f238d2",
+              "port": "in2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "63e4f628-c7ab-455e-9eef-3d60111079a5",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "fb8c7ffe-e6d2-4f14-b501-d803c1acdb4c",
+              "port": "out2"
+            },
+            "target": {
+              "cell": "404fab9a-c3ca-46ff-ac04-a2f45c23ea53",
+              "port": "bottom2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "622a8b6d-401c-46b8-8f39-62c6045a9bad",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "fb8c7ffe-e6d2-4f14-b501-d803c1acdb4c",
+              "port": "top2"
+            },
+            "target": {
+              "cell": "65b76b12-1a31-47ca-a9a7-419357d90d1d",
+              "port": "bottom2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "3e037446-a6bd-49d7-8057-2a17ad4dccd1",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "e6a17681-5e42-47fd-bbcc-94ef32b50c8a",
+              "port": "out2"
+            },
+            "target": {
+              "cell": "43af96f6-9b7f-48ae-a69b-42e373879ee9",
+              "port": "in2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "5c07d078-78dd-4efc-bab7-eb3996cf4c59",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "e6a17681-5e42-47fd-bbcc-94ef32b50c8a",
+              "port": "top2"
+            },
+            "target": {
+              "cell": "9e9af066-7991-40fd-8264-0193b1f238d2",
+              "port": "bottom2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "1c46c750-e0ef-41ae-958d-5cf045c2468d",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "b20895df-73ad-43ee-afe7-57ceb7071488",
+              "port": "out2"
+            },
+            "target": {
+              "cell": "65b76b12-1a31-47ca-a9a7-419357d90d1d",
+              "port": "in2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "1b9d57d5-3f77-4b2f-ab39-c5be532a7b18",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "b20895df-73ad-43ee-afe7-57ceb7071488",
+              "port": "out2"
+            },
+            "target": {
+              "cell": "fb8c7ffe-e6d2-4f14-b501-d803c1acdb4c",
+              "port": "in2"
+            },
+            "relation": "1:n",
+            "vertices": [
+              {
+                "x": 30,
+                "y": 280
+              }
+            ],
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "4fdae82f-e9e3-47a9-bddf-7e70cf5b3abc",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "73dfc345-23a5-4765-b57f-23a0ce594cb9",
+              "port": "out2"
+            },
+            "target": {
+              "cell": "a7c2f48f-bef4-407a-ae80-64bc54d95a22",
+              "port": "in2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "61f5dfa4-1448-40c1-928b-8d1948edcabf",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "73dfc345-23a5-4765-b57f-23a0ce594cb9",
+              "port": "bottom2"
+            },
+            "target": {
+              "cell": "b552db61-7085-4f44-8021-f0be0746e850",
+              "port": "top2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "c76d1065-bdfc-4f6a-a0d2-b3e5d349d5d8",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "a7c2f48f-bef4-407a-ae80-64bc54d95a22",
+              "port": "bottom2"
+            },
+            "target": {
+              "cell": "9e9af066-7991-40fd-8264-0193b1f238d2",
+              "port": "top2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "b552db61-7085-4f44-8021-f0be0746e850",
+            "shape": "edit-node",
+            "position": {
+              "x": 390,
+              "y": 130
+            },
+            "label": "组件",
+            "fontColor": "#ffffff",
+            "fillColor": "#1c81f0",
+            "size": {
+              "width": 80,
+              "height": 60
+            }
+          },
+          {
+            "id": "fb8c7ffe-e6d2-4f14-b501-d803c1acdb4c",
+            "shape": "edit-node",
+            "position": {
+              "x": 100,
+              "y": 250
+            },
+            "label": "基础产品",
+            "fontColor": "#ffffff",
+            "fillColor": "#4c9ef3",
+            "size": {
+              "width": 80,
+              "height": 60
+            }
+          },
+          {
+            "id": "e6a17681-5e42-47fd-bbcc-94ef32b50c8a",
+            "shape": "edit-node",
+            "position": {
+              "x": 540,
+              "y": 250
+            },
+            "label": "数据字典",
+            "fillColor": "#dce775",
+            "size": {
+              "width": 80,
+              "height": 60
+            }
+          },
+          {
+            "id": "43af96f6-9b7f-48ae-a69b-42e373879ee9",
+            "shape": "edit-node",
+            "position": {
+              "x": 672,
+              "y": 250
+            },
+            "label": "字典明细项",
+            "fillColor": "#dce775",
+            "size": {
+              "width": 80,
+              "height": 60
+            }
+          },
+          {
+            "id": "9e9af066-7991-40fd-8264-0193b1f238d2",
+            "shape": "edit-node",
+            "position": {
+              "x": 540,
+              "y": 130
+            },
+            "label": "参数",
+            "fontColor": "#ffffff",
+            "fillColor": "#1c81f0",
+            "size": {
+              "width": 80,
+              "height": 60
+            }
+          },
+          {
+            "id": "73dfc345-23a5-4765-b57f-23a0ce594cb9",
+            "shape": "edit-node",
+            "position": {
+              "x": 390,
+              "y": -10
+            },
+            "label": "组件\n（库）",
+            "fillColor": "#ff8a65",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            }
+          },
+          {
+            "id": "a7c2f48f-bef4-407a-ae80-64bc54d95a22",
+            "shape": "edit-node",
+            "position": {
+              "x": 540,
+              "y": -10
+            },
+            "label": "参数\n（库）",
+            "fillColor": "#ff8a65",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            }
+          },
+          {
+            "id": "b20895df-73ad-43ee-afe7-57ceb7071488",
+            "shape": "edit-node",
+            "position": {
+              "x": -80,
+              "y": 130
+            },
+            "label": "产品分类",
+            "fillColor": "#acdafc",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            }
+          },
+          {
+            "id": "65b76b12-1a31-47ca-a9a7-419357d90d1d",
+            "shape": "edit-node",
+            "position": {
+              "x": 100,
+              "y": 130
+            },
+            "label": "可售产品",
+            "fontColor": "#fafafa",
+            "fillColor": "#04a141",
+            "size": {
+              "width": 80,
+              "height": 60
+            }
+          },
+          {
+            "id": "404fab9a-c3ca-46ff-ac04-a2f45c23ea53",
+            "shape": "edit-node",
+            "position": {
+              "x": 240,
+              "y": 130
+            },
+            "label": "产品版本",
+            "fontColor": "#ffffff",
+            "fillColor": "#1c81f0",
+            "size": {
+              "width": 80,
+              "height": 60
+            }
+          }
+        ]
+      }
+    },
+    {
+      "defKey": "SMTC.OldEntities",
+      "defName": "现系统关键实体表",
+      "canvasData": {
+        "cells": [
+          {
+            "id": "5df518f7-622a-44ec-9a9a-a75030babea3",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "ddbf9450-9bdb-4709-81ba-c82542aedd14",
+              "port": "MODELSERIALNO%out"
+            },
+            "target": {
+              "cell": "de5fedca-0780-4314-ad6e-8c7c45a884b4",
+              "port": "SERIALNO%in"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "f8dc47ab-5dc5-4c48-a8b1-ce257833ee97",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "de5fedca-0780-4314-ad6e-8c7c45a884b4",
+              "port": "SERIALNO%out"
+            },
+            "target": {
+              "cell": "af8630ea-d6bd-4028-9453-4e78d0bc2008",
+              "port": "MODELSERIALNO%out"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "3b0d5845-37e0-4196-9b76-9a67a33942ce",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "d8cc00e9-e5cc-4f5c-8fcd-f18219a7d9ba",
+              "port": "SERIALNO%out"
+            },
+            "target": {
+              "cell": "730a55df-0430-4dde-a468-3a44e850e107",
+              "port": "GROUPSERIALNO%in"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "812bca79-8e8f-4f39-8c4c-e11dd2f6d34b",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "de5fedca-0780-4314-ad6e-8c7c45a884b4",
+              "port": "SERIALNO%out"
+            },
+            "target": {
+              "cell": "f89697f1-17d8-4fa6-a3f3-64eb8f080330",
+              "port": "MODELSERIALNO%in"
+            },
+            "relation": "1:n",
+            "vertices": [
+              {
+                "x": 630,
+                "y": 140
+              }
+            ],
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "667bb877-5add-4758-9ec5-2defaf3cd73b",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "f89697f1-17d8-4fa6-a3f3-64eb8f080330",
+              "port": "SERIALNO%out"
+            },
+            "target": {
+              "cell": "8d8b6a1b-f356-4fba-b76d-09a52cd72ec5",
+              "port": "SERIALNO%out"
+            },
+            "relation": "1:n",
+            "vertices": [
+              {
+                "x": 1230,
+                "y": 360
+              }
+            ],
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "b4c04c74-0f48-41b0-b1cc-a501ce222994",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "6378f882-a805-4fc3-b917-4e90afcd83b8",
+              "port": "SERIALNO%in"
+            },
+            "target": {
+              "cell": "af8630ea-d6bd-4028-9453-4e78d0bc2008",
+              "port": "CATALOGSERIALNO%in"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "1764e594-f879-48d2-bcf7-a54993a24421",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "6378f882-a805-4fc3-b917-4e90afcd83b8",
+              "port": "VALUECLASS%in"
+            },
+            "target": {
+              "cell": "730a55df-0430-4dde-a468-3a44e850e107",
+              "port": "PARAMNO%in"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "22c1c5e0-ae0c-4fba-81e3-876c281fb40a",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "6378f882-a805-4fc3-b917-4e90afcd83b8",
+              "port": "SERIALNO%out"
+            },
+            "target": {
+              "cell": "8d8b6a1b-f356-4fba-b76d-09a52cd72ec5",
+              "port": "CATALOGSERIALNO%in"
+            },
+            "relation": "1:n",
+            "vertices": [
+              {
+                "x": 630,
+                "y": 500
+              }
+            ],
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "d8cc00e9-e5cc-4f5c-8fcd-f18219a7d9ba",
+            "shape": "table",
+            "position": {
+              "x": -261,
+              "y": 885
+            },
+            "count": 0,
+            "originKey": "FRPT_NEW_GROUP"
+          },
+          {
+            "id": "730a55df-0430-4dde-a468-3a44e850e107",
+            "shape": "table",
+            "position": {
+              "x": 135,
+              "y": 770
+            },
+            "count": 0,
+            "originKey": "FRPT_NEW_PARAM"
+          },
+          {
+            "id": "8d8b6a1b-f356-4fba-b76d-09a52cd72ec5",
+            "shape": "table",
+            "position": {
+              "x": 696,
+              "y": 524
+            },
+            "count": 0,
+            "originKey": "FRPT_NEW_DOC_RECORD_CATALOG"
+          },
+          {
+            "id": "f89697f1-17d8-4fa6-a3f3-64eb8f080330",
+            "shape": "table",
+            "position": {
+              "x": 705,
+              "y": 100
+            },
+            "count": 0,
+            "originKey": "FRPT_NEW_DOC_RECORD"
+          },
+          {
+            "id": "de5fedca-0780-4314-ad6e-8c7c45a884b4",
+            "shape": "table",
+            "position": {
+              "x": 90,
+              "y": 100
+            },
+            "count": 0,
+            "originKey": "FRPT_NEW_MODEL"
+          },
+          {
+            "id": "6378f882-a805-4fc3-b917-4e90afcd83b8",
+            "shape": "table",
+            "position": {
+              "x": 104,
+              "y": 460
+            },
+            "count": 0,
+            "originKey": "FRPT_NEW_CATALOG"
+          },
+          {
+            "id": "e5e3757b-b4ad-4f86-953b-404991115401",
+            "shape": "edit-node",
+            "position": {
+              "x": 1259.9999999999982,
+              "y": 100
+            },
+            "label": "这两个表用来作什么",
+            "fillColor": "#fcf9ac",
+            "size": {
+              "width": 130,
+              "height": 750
+            }
+          },
+          {
+            "id": "af8630ea-d6bd-4028-9453-4e78d0bc2008",
+            "shape": "table",
+            "position": {
+              "x": 135,
+              "y": 312
+            },
+            "count": 0,
+            "originKey": "FRPT_NEW_RELA"
+          },
+          {
+            "id": "ddbf9450-9bdb-4709-81ba-c82542aedd14",
+            "shape": "table",
+            "position": {
+              "x": -344,
+              "y": 100
+            },
+            "count": 0,
+            "originKey": "BUSINESS_RECORD_RELA_NEW"
+          }
+        ]
+      }
+    },
+    {
+      "defKey": "SMTC.OldTables",
+      "defName": "现系统关键数据表",
+      "canvasData": {
+        "cells": []
+      }
+    },
+    {
+      "defKey": "PLCY.KeyTables",
+      "defName": "关键数据表",
+      "canvasData": {
+        "cells": [
+          {
+            "id": "66293666-89f6-4234-81d8-e2555ad8fb47",
+            "shape": "table",
+            "position": {
+              "x": 380,
+              "y": 110
+            },
+            "count": 0,
+            "originKey": "PLCY_COMPONENT"
+          }
+        ]
+      }
+    }
+  ]
+}

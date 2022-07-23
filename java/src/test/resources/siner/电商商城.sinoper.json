@@ -1,0 +1,6156 @@
+{
+  "name": "未命名",
+  "describe": "电子商城参考案例",
+  "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAEAYAAAD6+a2dAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAAASAAAAEgARslrPgAAC1NJREFUeNrtnHlclOUWx3/nnQHEm5cZQLRESWFQ5Kq5S7hBgaWZK2rmNZdyYTTRm+gVlSA3VBQVBjVSK7XUXMk+iEh5zTS9qVhdoxlxwcKVRZTFWc79A4dPSuMAOr0zMt+/gPfZznN+vM/7nGcB7NixU3chS1fg+urqV9RTPD3Z30GPLomJeJ57o0lAAD6GHLsdHMTuAKvjBRxD3MWL/CL3xKzo6MKxyncUiamplqrO4gKQLVBJNV3S0ykeq3lLSIil63ta4AXYi/NlZeSKE1Tq61vwRniBz6Dc3Cddj2BpQ2gjCTy6c2dL1/O0QXMxAN716iEczQzftm1rqXosLgB4QUeRR45YvJ6nDE6j+TT77l3JZEm4XnXqlKXqsfgQ8LdPkkPOe3h4OKpx3DBs2TJ2QjHQrRtpWEXbpVJL129z3IU7X8vNNSjZQPExMUW9lSN83vv6a7GbZceOnaeRGg8BntNXdMuNd3a+K3FuULY2KopHGvZja3AwHaEUnHZ0FNugugb3w6dYr1YLF3gTD42NzQ9RtvSdfe5cdfPXWADyY8lNNBEJCejLUaycNk3sDrBTAWfTYjS4cuWZxaVN6m3x9b2ycsbxpv8qLTWXr8azAC7jjdgRGiq2wXYehFryv1Hs6Vm8od7o8gGtW1c3X82ngRI8z4POnhXbYDsPwifgQoPv3EFh+WSJ9/nz1c1XYwE4rOE50jUREZzHYRj91VeIghck5eVid0BdhRchn5Kys2m6sIoChg8vounUnAoLxW6XHTt2bIFqzwKMET1pR/YzlPTrJ4zCfGxVKHgptmOem5vYhtRV6BlaSEGlpXDCyyjKzeU48tbPy8go3DZpfssWWVlm85t6YHS4w2V2NKxZuJDO4jP6dMwYHMRmXmkP4Vo7PA+pNOfECfqB1lDxjBkFWyb7eKcdPfpwuioCkGsSf9aE+vvjFcGBfffvxy1kYJqXl9gG2aklIRhF03U6HKQu/Py77xYUTP5FkZicbHxcKQCP4A/P5qxv1OjeQe3PesXJk+SOAng2bSp2++08IeRIgpqZ3qISDg0Ly4+efMFXunNn5TRQK9UW60OWL7c7/imlAEooiPgmdxRka9fKZevWnte4uJBsQeLmnBIvL9oteOk/zMlBDn5EX8F0fCCcPsCtU6eg4s/QPT5eCGKtxF+t1h0itWGnwSC2nXUNSRlls7u7u+GMYSbtGTSI+lEf9pgwwehwkxkjMI6LIiOluCnsMJx6/XXkoM+jHM+TEIDxJ08WLhSii+IDA4GJvTvptFrsAmD81vQRuzvqMH5YBRw4IC9RvaeR//ormgB8Ij7eVHIej6N0ZuBAgTLpMvu2amWufF4EFcUvWgRMnNSps1YrnqXMzETAurX/PWlNm0q3b/t5qPiroQX1ry3zzk9IAHAaF4qKTKWjXvQqylq3FjjKcBTp7u7mCpbuwxpdVvWXGZ80clnS0POa7t1l8cmuGlVenmyr/jWXY0VFsgjVAM23U6f+1e1xn7Nu3TnnZ5+VXVEdUqccPSpvcTPWcVxZmWxbUol687ZtQDQzC5bfcleFGCIyGPhzNEWvR/grnxPQRyYTkEcb0YXMBoS0i3mU9Ce9/q836D7LSGpIiImhBViI0EaNSIl9eNXZmT5GH260erW8s0qlnjJrlqWbYXS8rr1+qkOPzExqg2z0evFF45hLk2gTug4b5vKKhzQnJShItP4Kwl78y7y/RFBoLYmEL+VevWryuQbAtCVL5G8m7VU3jYx80tVXcfwEJHDSnwyd96dbwnHDbwi6fl3sbjOHzQhA2KTvoOs/cyZmoRPyNBqTCb+i35AZF/ekhFBtx9+HF/Auyps3r6BwamNvnx9/FLvfzGEzArg1YOrAVm///rv0B14q7dGjB++CD/V+xBh3XwiyrUnZmo+iompanzEwpntD/4k0LyPDrOPb4T9YFR1dOFLZ0mf8woVi9xeuYyleMD+024wAjNzYofyiOV296qDi9ZIrwcHmhEBKOsQ9FyyorhAqI6JbtM30/ocOUU+8iRumd9hUOv6b8M8VibGxYvdPTbE5ARh50kKo4vjW2AoPf39T5dm6443Y/KqeUQgNkYQLHBys3UUT9J6ZmTQYGv7Gz+/h9A8KAXBMcSwX9Ckpdc3xRmz2DfAwRiEIS3UreFBoqLmPRaMQ7vXT9tJrs7LMOn4QlSB0/nybcbwHInGG2VwyG3gDVETYZBdv9XJsHBZGYbwL8PQ0lZpv3v/hMt/D9rQ0yCkJfZVKU7FxY1zBZPXLcQAZajWt5T7od++evLNKpYbpeAMH4gCNKCnhlbRHG5iaWkSTyY8uXhS7F01h9QKQvXVzm9PtrVupPW7x4iFDqp1RQ8ady8rHasB76IOXFQoAwMtLlphLThr0YQCUCidpUmxsxTSydeubiyZO9CvNyxOtI01g/UNAPK7gsA2eQ7gfatUd0EU6DOzSRezmmMLqBUAzcY037tkjdjtqCs9FFNKvXdPp9QHs9t13YrfHFFY/BBRsdF/m88bYsbJzt66pb2/fTuksEW4891xty+O28EGviAhTswTjOjlk2CDITK+mmSy/mE5jZGmp437pYeHt9PTCM+FtWyTeuCF2P5rC6gUADBtGpNcX+gHAl18+bmkVV9YMHQpgNVBVAJJyycf6Hps335w2Mdz38cbsD3FCvF77QyQw+1HJrH4IsGNZbOANUIHb3o/ifklp0EA3uryBcKhhw9qWQ/EYx7nOzgA2/Nlzw2l9kHS8l5eLi0r16y1n55qWL/1E/5zhpbIy49qF2P1mtr1iN8Acsq9V6ZomSqUhubwb9iQkCMJjn0vY8KiHfBwZmHbsmCDU7v4cwxjJ7xIA8kCVr6Z/Vpb2rq4Fe4WE3DnzbprCCr8FrH4IoDiEo2dsrM0dSPkfInhFu3bS3lInGjFihNjNMYXVCwBNEcAply6J3Yxa045f48/tkcBaow+UdMessDDJQEMmtZw7l9O4F34yHQo2B6mxArc7dMD3mMGxrq5VEnjgF/rgyBEORSs41/zYOznRbg68e5e2GPbDLzW1YKzS0ZI3fT4uVi+A22MmTlQkGi88GDsWwLbHKa/y5tLvAaDqzaWSIRJ/7Y7hwx8rdLsOACD6DuHqYP1DgB2LYhdAHccugDqOXQB1HLsA6jh2AdRx6p4A2qInp5g+xi4cFwKcVtWdY+7VFgBvkFymEvMHDawdeouXQ3H6dBX77l+1ej3z7TbN37H+I11muc490M68v6TowwPou/x8xNA+DnxEwiJ9M67v7Q3gBKBWi21fbfl7fv320noxMbc7lDbTnWPGC+iIO56eOM4KyZ3lywEimmB+N621Q6lkwLM+FTc2/MmNwazGJvpHcbGUzlAbuGg0AB59nKkvTQGmTAHwBZCWJraBteUSjaXmVFZW8ducOTC+CzbCdtcb/oBcrvpGLR05EgnYgFLTy+a0knL5sFpNbh3Xrcte26qVIUevF16qxvl/FaIwavduKjVc5GVxcbr19d7Xrlar6dw9xTPxtv+fY2uwH2dqV7q5SbzxT945eDD3o46Y+f77xuPzJjPm82T4xMRUjhHy4GRBU3/fPpzmRM7q319sw+xYBuOl0g5zeLfkrEJR+RGoHy0k87jp09EVK2h+fr7YDbVjIa6gIfJnz648SWX8u3HVjcvQid0GD4YrReCA/dbppwW+ANCYuLjCoPBQn9+Skox/rzINrDj7dviwxFXfTnKwa1eOQ0/yS08X2wA7NWYdDl6+jJMUQMrhwwtl4eE+R2fPfjhRtef1Ll8kx6qntG8vDDHMw5oBA+BK0TRQoeBRaIzGHh5iW1tXoXz8xNNKStAGYzDs0iW+iLZIy8hwSXZ2kjZJT39w1mPHjh07f+T/MWXV7398Jc0AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMDctMjRUMTg6NTY6NTcrMDg6MDCiMaMiAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTA3LTI0VDE4OjU2OjU3KzA4OjAw02wbngAAAEh0RVh0c3ZnOmJhc2UtdXJpAGZpbGU6Ly8vaG9tZS9hZG1pbi9pY29uLWZvbnQvdG1wL2ljb25fdjh0ZTByYWQxdmQvY2Fpd3Uuc3ZnlJpA9gAAAABJRU5ErkJggg==",
+  "version": "3.5.0",
+  "createdTime": "2021-10-2 07:28:52",
+  "updatedTime": "2021-10-2 07:28:52",
+  "dbConns": [],
+  "profile": {
+    "default": {
+      "db": "08B7B30E-874F-4522-B139-3759B57A977F",
+      "dbConn": "",
+      "entityInitFields": [
+        {
+          "defKey": "TENANT_ID",
+          "defName": "租户号",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "refDict": "",
+          "uiHint": "",
+          "id": "5F361EFF-79D5-4539-842C-B53C8B0B7E84"
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "REVISION",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "9C119861-4769-4F82-B676-43F788149149"
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "CREATED_BY",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "E76EAF59-BC55-4081-96A2-6A289781FD27"
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "CREATED_TIME",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "2C83CDB2-155B-49DE-8EF8-94E7C4FC0DC8"
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "UPDATED_BY",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "E31DF24F-0936-433C-9D77-2FCB1541CA1B"
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "UPDATED_TIME",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "C9E7A777-662E-4C67-97B2-D18FB10FA023"
+        }
+      ],
+      "entityInitProperties": {
+        "partitioned by": "(date string)",
+        "row format delimited": "",
+        "fields terminated by ','": "",
+        "collection items terminated by '-'": "",
+        "map keys terminated by ':'": "",
+        "store as textfile;": ""
+      }
+    },
+    "javaHome": "",
+    "sql": {
+      "delimiter": ""
+    },
+    "dataTypeSupports": [
+      {
+        "defKey": "MYSQL",
+        "id": "08B7B30E-874F-4522-B139-3759B57A977F"
+      },
+      {
+        "defKey": "ORACLE",
+        "id": "55E9C463-886A-43C5-83C5-CC8234DF748A"
+      },
+      {
+        "defKey": "SQLServer",
+        "id": "E7A66588-7F30-47D1-97C7-1AC5561A8A22"
+      },
+      {
+        "defKey": "PostgreSQL",
+        "id": "A69F5DA2-4286-40B9-938F-864AB45BEA0C"
+      },
+      {
+        "defKey": "DB2",
+        "id": "99644375-5EDD-4672-8858-0804848B5911"
+      },
+      {
+        "defKey": "DM",
+        "id": "C9AB2387-AC9C-4BEA-AC76-D6547382567C"
+      },
+      {
+        "defKey": "JAVA",
+        "id": "FDD5476E-2710-4C95-8D91-7230D6A7BF12"
+      },
+      {
+        "defKey": "C#",
+        "id": "F7AFB3F1-D56B-412A-B47B-9EC97DF4D6BE"
+      }
+    ],
+    "codeTemplates": [
+      {
+        "type": "dbDDL",
+        "isDefault": true,
+        "applyFor": "08B7B30E-874F-4522-B139-3759B57A977F",
+        "createTable": "DROP TABLE IF EXISTS {{=it.entity.defKey}};\nCREATE TABLE {{=it.entity.defKey}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.primaryKey }}{{ pkList.push(field.defKey) }}{{?}}\n    {{=field.defKey}} {{=field.type}}{{?field.len>0}}{{='('}}{{=field.len}}{{?field.scale>0}}{{=','}}{{=field.scale}}{{?}}{{=')'}}{{?}} {{= field.notNull ? 'NOT NULL' : '' }} {{= field.autoIncrement ? 'AUTO_INCREMENT' : '' }} {{= field.defaultValue ? it.func.join('DEFAULT',field.defaultValue,' ') : '' }} COMMENT '{{=it.func.join(field.defName,field.comment,';')}}' {{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n)  COMMENT = '{{=it.func.join(it.entity.defName,it.entity.comment,';') }}';\n$blankline\n",
+        "createIndex": "{{~ it.entity.indexes:index}}\nCREATE {{? index.unique}}UNIQUE {{?}}INDEX {{=index.defKey}} ON {{=it.entity.defKey}}({{ fieldsKeys = index.fields.map(function(field){return field.fieldDefKey}) ; }}{{=it.func.join(...fieldsKeys,',')}});\n{{~}}"
+      },
+      {
+        "type": "dbDDL",
+        "isDefault": true,
+        "applyFor": "55E9C463-886A-43C5-83C5-CC8234DF748A",
+        "createTable": "CREATE TABLE {{=it.entity.defKey}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.primaryKey }}{{ pkList.push(field.defKey) }}{{?}}\n    {{=field.defKey}} {{=field.type}}{{?field.len>0}}{{='('}}{{=field.len}}{{?field.scale>0}}{{=','}}{{=field.scale}}{{?}}{{=')'}}{{?}}{{= field.notNull ? ' NOT NULL' : '' }}{{= field.autoIncrement ? ' AUTO_INCREMENT' : '' }}{{= field.defaultValue ? it.func.join(' DEFAULT ',field.defaultValue,' ') : '' }}{{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n);\n$blankline\n{{? it.entity.defKey || it.entity.defName}}COMMENT ON TABLE {{=it.entity.defKey}} IS '{{=it.func.join(it.entity.defName,it.entity.comment,';')}}';{{?}}\n{{~it.entity.fields:field:index}}\n{{? field.defName || field.comment}}COMMENT ON COLUMN {{=it.entity.defKey}}.{{=field.defKey}} IS '{{=it.func.join(field.defName,field.comment,';')}}';{{?}}\n{{~}}",
+        "createIndex": "{{~ it.entity.indexes:index}}\nCREATE {{? index.unique}}UNIQUE {{?}}INDEX {{=index.defKey}} ON {{=it.entity.defKey}}({{ fieldsKeys = index.fields.map(function(field){return field.fieldDefKey}) ; }}{{=it.func.join(...fieldsKeys,',')}});\n{{~}}"
+      },
+      {
+        "type": "dbDDL",
+        "isDefault": true,
+        "applyFor": "E7A66588-7F30-47D1-97C7-1AC5561A8A22",
+        "createTable": "DROP TABLE IF EXISTS {{=it.entity.defKey}};\nCREATE TABLE {{=it.entity.defKey}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.primaryKey }}{{ pkList.push(field.defKey) }}{{?}}\n    {{=field.defKey}} {{=field.type}}{{?field.len>0}}{{='('}}{{=field.len}}{{?field.scale>0}}{{=','}}{{=field.scale}}{{?}}{{=')'}}{{?}}{{= field.notNull ? ' NOT NULL' : '' }}{{= field.autoIncrement ? ' AUTO_INCREMENT' : '' }}{{= field.defaultValue ? it.func.join(' DEFAULT ',field.defaultValue,' ') : '' }}{{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n){{=it.separator}}\n$blankline\n{{? it.entity.defKey || it.entity.defName}}EXEC sp_addextendedproperty 'MS_Description', '{{=it.func.join(it.entity.defName,it.entity.comment,';')}}', 'SCHEMA', dbo, 'table', {{=it.entity.defKey}}, null, null;{{?}}\n{{~it.entity.fields:field:index}}\nEXEC sp_addextendedproperty 'MS_Description', '{{=it.func.join(field.defName,field.comment,';')}}', 'SCHEMA', dbo, 'table', {{=it.entity.defKey}}, 'column', {{=field.defKey}};\n{{~}}",
+        "createIndex": "{{~ it.entity.indexes:index}}\nCREATE {{? index.unique}}UNIQUE {{?}}INDEX {{=index.defKey}} ON {{=it.entity.defKey}}({{ fieldsKeys = index.fields.map(function(field){return field.fieldDefKey}) ; }}{{=it.func.join(...fieldsKeys,',')}});\n{{~}}"
+      },
+      {
+        "type": "dbDDL",
+        "isDefault": true,
+        "applyFor": "A69F5DA2-4286-40B9-938F-864AB45BEA0C",
+        "createTable": "DROP TABLE IF EXISTS {{=it.entity.defKey}};\nCREATE TABLE {{=it.entity.defKey}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.primaryKey }}{{ pkList.push(field.defKey) }}{{?}}\n    {{=field.defKey}} {{=field.type}}{{?field.len>0}}{{='('}}{{=field.len}}{{?field.scale>0}}{{=','}}{{=field.scale}}{{?}}{{=')'}}{{?}}{{= field.notNull ? ' NOT NULL' : '' }}{{= field.autoIncrement ? ' AUTO_INCREMENT' : '' }}{{= field.defaultValue ? it.func.join(' DEFAULT ',field.defaultValue,' ') : '' }}{{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n);\n$blankline\n{{? it.entity.defKey || it.entity.defName}}COMMENT ON TABLE {{=it.entity.defKey}} IS '{{=it.func.join(it.entity.defName,it.entity.comment,';')}}';{{?}}\n{{~it.entity.fields:field:index}}\n{{? field.defName || field.comment}}COMMENT ON COLUMN {{=it.entity.defKey}}.{{=field.defKey}} IS '{{=it.func.join(field.defName,field.comment,';')}}';{{?}}\n{{~}}",
+        "createIndex": "{{~ it.entity.indexes:index}}\nCREATE {{? index.unique}}UNIQUE {{?}}INDEX {{=index.defKey}} ON {{=it.entity.defKey}}({{ fieldsKeys = index.fields.map(function(field){return field.fieldDefKey}) ; }}{{=it.func.join(...fieldsKeys,',')}});\n{{~}}"
+      },
+      {
+        "type": "appCode",
+        "isDefault": true,
+        "applyFor": "FDD5476E-2710-4C95-8D91-7230D6A7BF12",
+        "content": "package cn.com.chiner.entity;\n$blankline\nimport javax.persistence.*;\nimport java.io.Serializable;\nimport java.util.Date;\n$blankline\n{{\n    var today=new Date();\n    var fullYear=today.getFullYear();\n    var month=today.getMonth() + 1;\n    var days=today.getDate();\n}}\n /**\n * @author : http://www.chiner.pro\n * @date : {{=fullYear}}-{{=month}}-{{=days}}\n * @desc : {{=it.func.join(it.entity.defName,it.entity.comment,'-')}}\n */\n@Table(name=\"{{=it.entity.defKey}}\")\npublic class {{=it.func.camel(it.entity.defKey,true) }} implements Serializable,Cloneable{\n{{~it.entity.fields:field:index}}\n    /** {{=it.func.join(field.defName,field.comment,';')}} */\n    {{? field.primaryKey }}\n    @Id\n    @GeneratedValue\n    {{?}}\n    private {{=field.type}} {{=it.func.camel(field.defKey,false)}} ;\n{{~}}\n$blankline\n\n{{~it.entity.fields:field:index}}\n    /** {{=it.func.join(field.defName,field.comment,';')}} */\n    public {{=field.type}} get{{=it.func.camel(field.defKey,true)}}(){\n        return this.{{=it.func.camel(field.defKey,false)}};\n    }\n    /** {{=it.func.join(field.defName,field.comment,';')}} */\n    public void set{{=it.func.camel(field.defKey,true)}}({{=field.type}} {{= it.func.camel(field.defKey,false) }}){\n        return this.{{=it.func.camel(field.defKey,false)}}={{=it.func.camel(field.defKey,false)}};\n    }\n{{~}}\n}"
+      },
+      {
+        "type": "dbDDL",
+        "isDefault": true,
+        "applyFor": "99644375-5EDD-4672-8858-0804848B5911",
+        "createTable": "CREATE TABLE {{=it.entity.defKey}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.primaryKey }}{{ pkList.push(field.defKey) }}{{?}}\n    {{=field.defKey}} {{=field.type}}{{?field.len>0}}{{='('}}{{=field.len}}{{?field.scale>0}}{{=','}}{{=field.scale}}{{?}}{{=')'}}{{?}}{{= field.notNull ? ' NOT NULL' : '' }}{{= field.autoIncrement ? ' AUTO_INCREMENT' : '' }}{{= field.defaultValue ? it.func.join(' DEFAULT ',field.defaultValue,' ') : '' }}{{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n);\n$blankline\n{{? it.entity.defKey || it.entity.defName}}COMMENT ON TABLE {{=it.entity.defKey}} IS '{{=it.func.join(it.entity.defName,it.entity.comment,';')}}';{{?}}\n{{~it.entity.fields:field:index}}\n{{? field.defName || field.comment}}COMMENT ON COLUMN {{=it.entity.defKey}}.{{=field.defKey}} IS '{{=it.func.join(field.defName,field.comment,';')}}';{{?}}\n{{~}}",
+        "createIndex": "{{~ it.entity.indexes:index}}\nCREATE {{? index.unique}}UNIQUE {{?}}INDEX {{=index.defKey}} ON {{=it.entity.defKey}}({{ fieldsKeys = index.fields.map(function(field){return field.fieldDefKey}) ; }}{{=it.func.join(...fieldsKeys,',')}});\n{{~}}"
+      },
+      {
+        "type": "dbDDL",
+        "isDefault": true,
+        "applyFor": "C9AB2387-AC9C-4BEA-AC76-D6547382567C",
+        "createTable": "CREATE TABLE {{=it.entity.defKey}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.primaryKey }}{{ pkList.push(field.defKey) }}{{?}}\n    {{=field.defKey}} {{=field.type}}{{?field.len>0}}{{='('}}{{=field.len}}{{?field.scale>0}}{{=','}}{{=field.scale}}{{?}}{{=')'}}{{?}}{{= field.notNull ? ' NOT NULL' : '' }}{{= field.autoIncrement ? ' AUTO_INCREMENT' : '' }}{{= field.defaultValue ? it.func.join(' DEFAULT ','('+field.defaultValue+')',' ') : '' }}{{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n);\n$blankline\n{{? it.entity.defKey || it.entity.defName}}COMMENT ON TABLE {{=it.entity.defKey}} IS '{{=it.func.join(it.entity.defName,it.entity.comment,';')}}';{{?}}\n{{~it.entity.fields:field:index}}\n{{? field.defName || field.comment}}COMMENT ON COLUMN {{=it.entity.defKey}}.{{=field.defKey}} IS '{{=it.func.join(field.defName,field.comment,';')}}';{{?}}\n{{~}}",
+        "createIndex": "{{~ it.entity.indexes:index}}\nCREATE {{? index.unique}}UNIQUE {{?}}INDEX {{=index.defKey}} ON {{=it.entity.defKey}}({{ fieldsKeys = index.fields.map(function(field){return field.fieldDefKey}) ; }}{{=it.func.join(...fieldsKeys,',')}});\n{{~}}"
+      },
+      {
+        "type": "appCode",
+        "isDefault": true,
+        "applyFor": "F7AFB3F1-D56B-412A-B47B-9EC97DF4D6BE",
+        "content": "using System;\nusing System.Collections.Generic;\n\n$blankline\n{{\n    var today=new Date();\n    var fullYear=today.getFullYear();\n    var month=today.getMonth() + 1;\n    var days=today.getDate();\n}}\n/*\n * @author : http://www.chiner.com.cn\n * @date : {{=fullYear}}-{{=month}}-{{=days}}\n * @desc : {{=it.func.join(it.entity.defName,it.entity.comment,'-')}}\n */\nnamespace Chiner.Application\n{\n    public class {{=it.func.camel(it.entity.defKey,true) }}\n    {\n    \n        {{~it.entity.fields:field:index}}\n        /// <summary>\n        /// {{=it.func.join(field.defName,field.comment,';')}}\n        /// </summary>\n        public {{=field.type}} {{=it.func.camel(field.defKey,true)}} { get; set; }\n        $blankline\n        {{~}}\n        \n    }\n}"
+      },
+      {
+        "type": "dbDDL",
+        "applyFor": "dictSQLTemplate",
+        "content": "/* 插入字典总表[{{=it.dict.defKey}}-{{=it.dict.defName}}] */\nINSERT INTO SYS_DICT(KEY_,LABEL,INTRO,REVISION) VALUES('{{=it.dict.defKey}}','{{=it.dict.defName}}','{{=it.dict.intro}}',1);\n/* 插入字典明细表 */\n{{~it.dict.items:item:index}}\nINSERT INTO SYS_DICT_ITEM(DICT_KEY,KEY_,LABEL,SORT_,INTRO,REVISION) VALUES('{{=it.dict.defKey}}','{{=item.defKey}}','{{=item.defName}}','{{=item.sort}}','{{=item.intro}}',1);\n{{~}}"
+      }
+    ],
+    "generatorDoc": {
+      "docTemplate": ""
+    },
+    "modelType": "modalGroup",
+    "uiHint": [
+      {
+        "data": [
+          "",
+          ""
+        ],
+        "defKey": "Input",
+        "defName": "普通输入",
+        "id": "176913DC-A7CE-499E-874D-70805DE86639"
+      },
+      {
+        "data": [
+          "",
+          ""
+        ],
+        "defKey": "Select",
+        "defName": "下拉输入",
+        "id": "1BCDD8BE-1635-4D47-8174-FFEE1ED16660"
+      },
+      {
+        "data": [
+          "",
+          ""
+        ],
+        "defKey": "Check",
+        "defName": "复选框",
+        "id": "EFCC1626-2106-435A-8800-AE5D2A667ED9"
+      },
+      {
+        "data": [
+          "",
+          ""
+        ],
+        "defKey": "Radio",
+        "defName": "单选框",
+        "id": "165EFAE0-20F1-442B-9625-D5F2A69DDD5C"
+      },
+      {
+        "data": [
+          "",
+          ""
+        ],
+        "defKey": "Text",
+        "defName": "长文本",
+        "id": "9E4DFEA7-35C7-414B-B8AA-70BC6CA4A542"
+      },
+      {
+        "defKey": "Double",
+        "defName": "小数输入",
+        "id": "BB239D91-DF66-4DB3-8AB1-703C1E94C0BE"
+      },
+      {
+        "defKey": "Integer",
+        "defName": "整数输入",
+        "id": "23100BDB-4E42-48B5-9259-6668D1314135"
+      },
+      {
+        "defKey": "Money",
+        "defName": "金额输入",
+        "id": "1EF40444-91BA-45A0-A96E-8A35DBB677C8"
+      },
+      {
+        "defKey": "Date",
+        "defName": "日期输入",
+        "id": "8A9F898F-3EA4-483B-BDF3-23C58A003901"
+      },
+      {
+        "defKey": "DateYearMonth",
+        "defName": "年月输入",
+        "id": "F9CA2F5D-D716-44BC-BD38-C8988E4D5D24"
+      }
+    ]
+  },
+  "entities": [
+    {
+      "defKey": "BUYR_USER",
+      "defName": "买家",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "USER_ID",
+          "defName": "用户ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "BF8F97C6-D729-4D70-BF80-562F62223AC7"
+        },
+        {
+          "defKey": "USER_NAME",
+          "defName": "用户名称",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "4F3B2E68-64F3-46B1-A36B-3D229135A1FF",
+          "uiHint": "",
+          "id": "EFEA909F-001C-42A5-9F41-277B4F9B6640"
+        },
+        {
+          "defKey": "NICK_NAME",
+          "defName": "用户昵称",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "4F3B2E68-64F3-46B1-A36B-3D229135A1FF",
+          "uiHint": "",
+          "id": "14F8703E-34E2-4271-B797-26B8C2B0FE95"
+        },
+        {
+          "defKey": "USER_INTRO",
+          "defName": "个性签名",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 300,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "",
+          "uiHint": "",
+          "id": "6376235D-F34A-4136-BB05-70CAF263C441"
+        },
+        {
+          "defKey": "AVATAR",
+          "defName": "头像图片",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 1000,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "",
+          "uiHint": "",
+          "id": "236F7CDD-0474-4852-AD8E-9851C795085B"
+        },
+        {
+          "defKey": "EMAIL",
+          "defName": "邮件地址",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "9697C8A5-C670-4AFA-9C90-DFED3895E8F3"
+        },
+        {
+          "defKey": "PHONE",
+          "defName": "手机号",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "67BB4403-34F4-4069-BC18-F5CF8350FE94"
+        },
+        {
+          "defKey": "USER_PASS",
+          "defName": "密码",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "11E7B44D-06E2-4EB1-A271-7028285C3B4A"
+        },
+        {
+          "defKey": "PASS_SALT",
+          "defName": "密码盐",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "7E1623DC-6B21-4688-8F83-0EA26C165EFA"
+        },
+        {
+          "defKey": "USER_STATUS",
+          "defName": "用户状态",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "'1'",
+          "hideInGraph": false,
+          "refDict": "5DE5AB19-A216-450D-B671-30978D87DF90",
+          "domain": "5FDB7A32-9F7B-4F4F-B669-4F04AB3F6336",
+          "uiHint": "",
+          "id": "36E8800C-C393-4B80-A027-0338573229E0"
+        },
+        {
+          "defKey": "USER_SCORE",
+          "defName": "用户打分",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "uiHint": "",
+          "id": "742E0E8D-CB1B-48E6-816C-81612D23FF62"
+        },
+        {
+          "defKey": "TOTAL_COST_AMT",
+          "defName": "累计消费金额",
+          "comment": "",
+          "type": "NUMBER",
+          "len": 32,
+          "scale": 8,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0BB42C53-FD52-4FC5-8845-03E95DF12C69",
+          "uiHint": "",
+          "id": "89C8DB04-A03E-4146-A46E-7E7A1F5E2012"
+        },
+        {
+          "defKey": "LAST_LOGIN_TIME",
+          "defName": "最后登录时间",
+          "comment": "",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "uiHint": "",
+          "id": "EBB69EDD-C850-4F41-81CE-68C84290C8B1"
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "C078086C-E164-4BCC-9857-5C32DC4B8F0C"
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "F4F42D69-6F27-4AE5-8375-5AB98DAEC2CF"
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "42AF136A-84A0-49D3-990C-C26306029F39"
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "55CCB69A-AA8F-4BDC-A316-36B477225E6B"
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "8A872A77-0899-4700-B32C-DCDA0E97C802"
+        }
+      ],
+      "correlations": [],
+      "indexes": [],
+      "id": "B048731C-07A9-44AE-B533-7C6AB6C3E797"
+    },
+    {
+      "defKey": "BUYR_ORDER",
+      "defName": "订单",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "defKey",
+          "hideInGraph": false,
+          "code": "name",
+          "value": "字段代码",
+          "newCode": "defKey",
+          "com": "Input",
+          "relationNoShow": false,
+          "freeze": true
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false,
+          "code": "chnname",
+          "value": "显示名称",
+          "newCode": "defName",
+          "com": "Input",
+          "relationNoShow": false,
+          "freeze": true
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false,
+          "code": "pk",
+          "value": "主键",
+          "newCode": "primaryKey",
+          "com": "Checkbox",
+          "relationNoShow": false,
+          "freeze": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true,
+          "code": "notNull",
+          "value": "不为空",
+          "newCode": "notNull",
+          "com": "Checkbox",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true,
+          "code": "autoIncrement",
+          "value": "自增",
+          "newCode": "autoIncrement",
+          "com": "Checkbox",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true,
+          "code": "type",
+          "value": "数据域",
+          "newCode": "domain",
+          "com": "Select",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false,
+          "code": "dataType",
+          "value": "数据类型",
+          "newCode": "type",
+          "com": "Text",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false,
+          "code": "len",
+          "value": "长度",
+          "newCode": "len",
+          "com": "Input",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false,
+          "code": "scale",
+          "value": "小数位数",
+          "newCode": "scale",
+          "com": "Input",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true,
+          "code": "remark",
+          "value": "说明",
+          "newCode": "comment",
+          "com": "Input",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true,
+          "code": "defaultValue",
+          "value": "默认值",
+          "newCode": "defaultValue",
+          "com": "Input",
+          "relationNoShow": true,
+          "freeze": false
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true,
+          "code": "refDict",
+          "value": "数据字典",
+          "newCode": "refDict",
+          "com": "SearchSelect",
+          "relationNoShow": true,
+          "freeze": true
+        },
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true,
+          "freeze": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false,
+          "freeze": true
+        },
+        {
+          "freeze": true,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "ORDER_ID",
+          "defName": "订单ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "1F9928C3-060C-4BCF-9BDE-6A98B2EA786E"
+        },
+        {
+          "defKey": "USER_ID",
+          "defName": "用户ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "isStandard": true,
+          "uiHint": "",
+          "id": "B09CA469-7975-4272-9960-2F9B59E9F13A"
+        },
+        {
+          "defKey": "CART_ID",
+          "defName": "购物车ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "E5947B6F-CAD8-4ACA-9002-50C5C6FDB045"
+        },
+        {
+          "defKey": "ADDRESS_ID",
+          "defName": "地址ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "488C9B46-FFA6-4713-8375-2F30FC498739"
+        },
+        {
+          "defKey": "COUPON_ID",
+          "defName": "优惠券ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "BB1ACF08-2AF9-4786-99E1-9D7D68B204DD"
+        },
+        {
+          "defKey": "TOTAL_PRICE",
+          "defName": "总金额",
+          "comment": "",
+          "type": "NUMBER",
+          "len": 32,
+          "scale": 8,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0BB42C53-FD52-4FC5-8845-03E95DF12C69",
+          "uiHint": "",
+          "id": "DB87F2F3-DA87-4155-9DFD-AB22E6B9A68A"
+        },
+        {
+          "defKey": "COUPON_PRICE",
+          "defName": "优惠金额",
+          "comment": "",
+          "type": "NUMBER",
+          "len": 32,
+          "scale": 8,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0BB42C53-FD52-4FC5-8845-03E95DF12C69",
+          "uiHint": "",
+          "id": "5E178AAB-F588-41E1-A3F6-CD1885D02BE3"
+        },
+        {
+          "defKey": "PAYABLE_PRICE",
+          "defName": "应付金额",
+          "comment": "",
+          "type": "NUMBER",
+          "len": 32,
+          "scale": 8,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0BB42C53-FD52-4FC5-8845-03E95DF12C69",
+          "uiHint": "",
+          "id": "A653390C-66B8-4CF3-89BC-611267973BF4"
+        },
+        {
+          "defKey": "PAY_METHOD",
+          "defName": "支付方式",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "CA4E9CF9-5533-44B4-B5AB-33EF7DD6E233",
+          "domain": "5FDB7A32-9F7B-4F4F-B669-4F04AB3F6336",
+          "uiHint": "",
+          "id": "9A1D9CE3-FE96-43F2-AC6A-BBDD7DE83252"
+        },
+        {
+          "defKey": "INVOICE_TPL_ID",
+          "defName": "开票设置ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "42F01C0F-E28B-4F73-84F7-FD5C6D98F04F"
+        },
+        {
+          "defKey": "LEAVE_COMMENT",
+          "defName": "订单留言备注",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 1000,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "",
+          "uiHint": "",
+          "id": "2AECD478-7641-4421-9362-91F12A0C13D2"
+        },
+        {
+          "defKey": "ORDER_STATUS",
+          "defName": "订单状态",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "C88B2E20-912F-49D2-A353-CE763A82D2C6",
+          "domain": "5FDB7A32-9F7B-4F4F-B669-4F04AB3F6336",
+          "uiHint": "",
+          "id": "894AF19F-CE31-473A-B113-0EAB831A0BB3"
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "474118E1-79DA-48B1-9261-9E2757A3A6F3"
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "9DF516EE-4BD0-4863-A3DB-C745CED85EB4"
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "F6C635BB-7262-44A6-9608-499D95F2CA1A"
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "B7A746E6-BA7C-4522-8A56-DF6317FC4E4F"
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "6E69B85A-3BE5-4E8D-99B7-50FFF0AAAFB1"
+        }
+      ],
+      "correlations": [
+        {
+          "myField": "E5947B6F-CAD8-4ACA-9002-50C5C6FDB045",
+          "refEntity": "C484DDD6-5597-4838-BAA8-87DE939134B4",
+          "refField": "6F013604-170B-4369-8634-A1CCC0FF7BC6",
+          "myRows": "n",
+          "refRows": "1",
+          "innerType": ""
+        },
+        {
+          "myField": "488C9B46-FFA6-4713-8375-2F30FC498739",
+          "refEntity": "788EB337-43A6-46D9-B714-351F2FFAB473",
+          "refField": "8EFD702F-89F8-4FE9-AE4C-E06DDCF98BE5",
+          "myRows": "n",
+          "refRows": "1",
+          "innerType": ""
+        }
+      ],
+      "indexes": [],
+      "id": "4E17DB24-EC61-42B3-8EE5-DE8F06618356"
+    },
+    {
+      "defKey": "BUYR_CART",
+      "defName": "购物车",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "USER_ID",
+          "defName": "用户ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "isStandard": true,
+          "uiHint": "",
+          "id": "95E61625-8CEF-4DE8-A7DD-D79D2E681542"
+        },
+        {
+          "defKey": "SELLER_ID",
+          "defName": "商家ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "8BEA4054-DA87-46A0-A9B4-447DBE5750AE"
+        },
+        {
+          "defKey": "CART_ID",
+          "defName": "购物车ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "6F013604-170B-4369-8634-A1CCC0FF7BC6"
+        },
+        {
+          "defKey": "TOTAL_PRICE",
+          "defName": "总金额",
+          "comment": "",
+          "type": "NUMBER",
+          "len": 32,
+          "scale": 8,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "0BB42C53-FD52-4FC5-8845-03E95DF12C69",
+          "refDict": "",
+          "uiHint": "",
+          "id": "9F2C6C76-F9CC-4E8F-82BD-D68123E22863"
+        },
+        {
+          "defKey": "PAYABLE_PRICE",
+          "defName": "应付金额",
+          "comment": "",
+          "type": "NUMBER",
+          "len": 32,
+          "scale": 8,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "0BB42C53-FD52-4FC5-8845-03E95DF12C69",
+          "refDict": "",
+          "uiHint": "",
+          "id": "58FE04A3-E9C4-40AE-B9CE-241C6B830DF7"
+        },
+        {
+          "defKey": "CART_STATUS",
+          "defName": "购物车状态",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "1E7CD4EB-5DFB-4909-A6BE-D03AC800A2AB",
+          "domain": "5FDB7A32-9F7B-4F4F-B669-4F04AB3F6336",
+          "uiHint": "",
+          "id": "FC517B74-CFB7-4D1F-B2FF-7535DEC634BD"
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "1BE8891B-50F5-4676-BDF5-DD12ED8FD3CC"
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "D90A9EED-F99F-4345-B30E-C15B78A2CD84"
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "7C082CF6-D835-41E6-A325-F0932D925B7B"
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "623BFF58-5AEA-41B9-8188-1060922F25C7"
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "AD533FE3-8171-4E3E-9792-D48F3429B8AF"
+        }
+      ],
+      "correlations": [
+        {
+          "myField": "95E61625-8CEF-4DE8-A7DD-D79D2E681542",
+          "refEntity": "B048731C-07A9-44AE-B533-7C6AB6C3E797",
+          "refField": "BF8F97C6-D729-4D70-BF80-562F62223AC7",
+          "myRows": "n",
+          "refRows": "1",
+          "innerType": ""
+        }
+      ],
+      "indexes": [],
+      "id": "C484DDD6-5597-4838-BAA8-87DE939134B4"
+    },
+    {
+      "defKey": "BUYR_ITEM",
+      "defName": "购买明细",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "ORDER_ID",
+          "defName": "订单ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "5F674AFA-9B14-4DC9-A50D-7149246C28F5"
+        },
+        {
+          "defKey": "CART_ID",
+          "defName": "购物车ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "2DF5B7DC-8712-4577-8401-839B7BD93FD3"
+        },
+        {
+          "defKey": "ITEM_ID",
+          "defName": "明细项ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "8F4E5DE2-6B1D-415D-97B1-265846BAA4D3"
+        },
+        {
+          "defKey": "SKU_ID",
+          "defName": "商品ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "refDict": "",
+          "uiHint": "",
+          "id": "DBA29470-F2CD-46E9-922A-5A3973225E58"
+        },
+        {
+          "defKey": "SKU_TITLE",
+          "defName": "商品标题",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "4F3B2E68-64F3-46B1-A36B-3D229135A1FF",
+          "refDict": "",
+          "uiHint": "",
+          "id": "DE5F4B25-417D-4A6D-8F41-37C1F40451DE"
+        },
+        {
+          "defKey": "SKU_INTRO",
+          "defName": "商品介绍",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 3000,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "B1A0FD79-56DF-4E2A-8D47-38E94B269106"
+        },
+        {
+          "defKey": "PRICE",
+          "defName": "原价",
+          "comment": "",
+          "type": "NUMBER",
+          "len": 32,
+          "scale": 8,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "0BB42C53-FD52-4FC5-8845-03E95DF12C69",
+          "refDict": "",
+          "uiHint": "",
+          "id": "CB168329-1E87-487F-ABF8-10F1A92BAEE2"
+        },
+        {
+          "defKey": "SALE_PRICE",
+          "defName": "售价",
+          "comment": "",
+          "type": "NUMBER",
+          "len": 32,
+          "scale": 8,
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "domain": "0BB42C53-FD52-4FC5-8845-03E95DF12C69",
+          "refDict": "",
+          "uiHint": "",
+          "id": "402669DA-84BF-4042-A634-F7F949DE0383"
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "refDict": "",
+          "uiHint": "",
+          "id": "DCC191A6-A078-44E4-9C67-D9EFB2BDCD06"
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "refDict": "",
+          "uiHint": "",
+          "id": "D781AC33-1677-47B7-AA3A-3658C87E7A08"
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "refDict": "",
+          "uiHint": "",
+          "id": "7C16BD5A-EEC4-4E90-82A8-D885AD882ECD"
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "refDict": "",
+          "uiHint": "",
+          "id": "490999AB-9DA8-4A26-AE30-B5CCE89C51F0"
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "refDict": "",
+          "uiHint": "",
+          "id": "F61FEEE2-081D-4969-86E8-19881AEF76E7"
+        }
+      ],
+      "correlations": [
+        {
+          "myField": "2DF5B7DC-8712-4577-8401-839B7BD93FD3",
+          "refEntity": "C484DDD6-5597-4838-BAA8-87DE939134B4",
+          "refField": "6F013604-170B-4369-8634-A1CCC0FF7BC6",
+          "myRows": "n",
+          "refRows": "1",
+          "innerType": ""
+        },
+        {
+          "myField": "5F674AFA-9B14-4DC9-A50D-7149246C28F5",
+          "refEntity": "4E17DB24-EC61-42B3-8EE5-DE8F06618356",
+          "refField": "1F9928C3-060C-4BCF-9BDE-6A98B2EA786E",
+          "myRows": "n",
+          "refRows": "1",
+          "innerType": ""
+        }
+      ],
+      "indexes": [],
+      "id": "06CD9B20-3D05-4DA8-8ABE-8E5E200D9BC5"
+    },
+    {
+      "defKey": "BUYR_ADDRESS",
+      "defName": "地址",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "ADDRESS_ID",
+          "defName": "地址ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "8EFD702F-89F8-4FE9-AE4C-E06DDCF98BE5"
+        },
+        {
+          "defKey": "ADDRESS_NAME",
+          "defName": "地址名称",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "CBAC9500-D14E-4E2E-8428-45D03F470480"
+        },
+        {
+          "defKey": "SEQ_NUMBER",
+          "defName": "顺序号",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "uiHint": "",
+          "id": "00AA02F2-1BDB-493C-8274-631375F17F1E"
+        },
+        {
+          "defKey": "PROVINCE",
+          "defName": "省",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "78BA58B8-3A5F-40CF-847D-9D6A369E842D"
+        },
+        {
+          "defKey": "CITY",
+          "defName": "市",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "18C3E81F-FE4D-407D-B3B6-D8342DA99AD4"
+        },
+        {
+          "defKey": "COUNTY",
+          "defName": "区",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "961C487A-7325-4A19-8F08-803E720BB1D6"
+        },
+        {
+          "defKey": "STREET",
+          "defName": "街道",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "C6F1E061-84A5-4B34-A653-5C22B84C7126"
+        },
+        {
+          "defKey": "LAST_DETAIL",
+          "defName": "门牌号",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "51C26A66-89BB-4AD4-A59E-FE7EBC2DC777"
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "0746C909-691E-4A52-9CFD-0B8AC82276F2"
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "2BF3913B-A51C-4EF0-8348-CF86C4F61C31"
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "36BDDFC4-B661-4993-89FA-9B9F0F24E8CE"
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "D38F0829-D6FD-4938-8968-DF60DC1D4217"
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "9B658871-5F78-4B75-B34F-1EF3FA39EE40"
+        }
+      ],
+      "correlations": [],
+      "indexes": [],
+      "id": "788EB337-43A6-46D9-B714-351F2FFAB473"
+    },
+    {
+      "defKey": "BUYER_PAYMENT",
+      "defName": "支付",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "A0E3A7E7-00B3-4655-BCD7-B20B8D8D953B"
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "6080961E-B4C9-476A-9577-73807DF39EF7"
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "441F475B-6FF0-4A93-AD86-E408BBF3D832"
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "86BE2887-6E2A-4D13-95AE-C7B1A69C4FFA"
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "CA9EF0D5-0240-4FF3-98C1-CAB66DD0FBD4"
+        }
+      ],
+      "correlations": [],
+      "indexes": [],
+      "id": "95BCC66C-1CF7-4494-A01B-2A976080E52D"
+    },
+    {
+      "defKey": "GDPT_ADVERT",
+      "defName": "广告",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "ID",
+          "defName": "ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "0AC787C9-6F5B-4190-9DE0-7BFC8E6D5804"
+        },
+        {
+          "defKey": "TITLE",
+          "defName": "广告标题",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "CC0F838A-FB1D-4CCA-BD4A-CB09ECEDC629"
+        },
+        {
+          "defKey": "INTRO",
+          "defName": "简要说明",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 1000,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "",
+          "uiHint": "",
+          "id": "DF515536-0635-4B4B-ADAD-9835DFD19D47"
+        },
+        {
+          "defKey": "CONTENT",
+          "defName": "广告内容",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 3000,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "F19B7711-A4B0-4CE0-B5A1-8DB43CFD06B3"
+        },
+        {
+          "defKey": "TITLE_IMAGE",
+          "defName": "标题图片",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 1000,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "",
+          "uiHint": "",
+          "id": "21E31F54-A418-427E-AD55-7B64B9AC98D2"
+        },
+        {
+          "defKey": "VIEW_COUNT",
+          "defName": "查看次数",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "uiHint": "",
+          "id": "E0C95661-422C-4BFA-9F7A-7437BA12E522"
+        },
+        {
+          "defKey": "START_DATE",
+          "defName": "生效日期",
+          "comment": "",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "uiHint": "",
+          "id": "28584799-D4EA-42DA-9524-09CD603F61B1"
+        },
+        {
+          "defKey": "EXPIRY_DATE",
+          "defName": "失效日期",
+          "comment": "",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "uiHint": "",
+          "id": "579622D4-DABC-446B-A114-F636C838EDB4"
+        },
+        {
+          "defKey": "STATUS",
+          "defName": "状态",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "5FDB7A32-9F7B-4F4F-B669-4F04AB3F6336",
+          "uiHint": "",
+          "id": "8540611D-881A-419A-9A6F-D08980F38C7B"
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "EC951DB5-F563-42FF-B8C5-8CC5A35F8A29"
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "E06B43E7-80DF-48A5-929D-B2EC42AD47CB"
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "6CBD7D1A-9981-4D03-B5DC-82DA58DA40BA"
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "C34C9A1C-C089-472F-A614-AF199BEB3CF8"
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "2B8428E2-0307-4DFE-B042-C595E355BA64"
+        }
+      ],
+      "correlations": [],
+      "indexes": [],
+      "id": "860B3D7B-06D1-4526-A525-F0E8256F7DE2"
+    },
+    {
+      "defKey": "GDPT_SMS_TPL",
+      "defName": "短信模板",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "ID",
+          "defName": "ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "AE5A01C0-613A-4B06-B734-4E46D3B3777E"
+        },
+        {
+          "defKey": "TITLE",
+          "defName": "标题",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "D832B492-E78C-4079-BCA3-B74E756C8318"
+        },
+        {
+          "defKey": "CONTENT",
+          "defName": "内容",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 1000,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "",
+          "uiHint": "",
+          "id": "38A477D6-D4B4-4702-91F1-4BBE274D289A"
+        },
+        {
+          "defKey": "STATUS",
+          "defName": "状态",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "5FDB7A32-9F7B-4F4F-B669-4F04AB3F6336",
+          "uiHint": "",
+          "id": "D10DFCB1-A3D9-4776-A5A8-E016C66551CF"
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "C7390698-B660-49E8-8780-1E06B71C302B"
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "7ECA768D-F740-473E-9BD2-B0F27356FDED"
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "AC36C896-C8D5-4AC7-8F53-9A8D8BB77BB5"
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "D5A09EE7-A806-425A-8BA4-8CCFFC4F1636"
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "06845938-85E6-4DAC-AC70-39244094AEEA"
+        }
+      ],
+      "correlations": [],
+      "indexes": [],
+      "id": "777FA2AD-5059-4863-8707-924B7918C9E6"
+    },
+    {
+      "defKey": "GPPT_USER",
+      "defName": "用户",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "USER_ID",
+          "defName": "用户ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "95C82F24-582D-4954-AC5D-D8C8A32FCDED"
+        },
+        {
+          "defKey": "REAL_NAME",
+          "defName": "用户名",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "4F3B2E68-64F3-46B1-A36B-3D229135A1FF",
+          "uiHint": "",
+          "id": "728DD8FC-46F8-4F85-8D35-2758D7AEF3A0"
+        },
+        {
+          "defKey": "NICK_NAME",
+          "defName": "昵称",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "4F3B2E68-64F3-46B1-A36B-3D229135A1FF",
+          "uiHint": "",
+          "id": "48AE55C2-91F9-474F-B91E-F582E2464323"
+        },
+        {
+          "defKey": "USER_PASS",
+          "defName": "密码",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "2B51E4D4-B866-4DD6-96CA-A813852CFFC5"
+        },
+        {
+          "defKey": "AVATAR",
+          "defName": "头像图片",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 3000,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "4FD385E7-F7B8-4797-9A7F-0D9DCF208D5E"
+        },
+        {
+          "defKey": "INTRO",
+          "defName": "个人介绍",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 3000,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "0C413FC7-EB98-43AC-BFC6-1D29C73E91BF"
+        },
+        {
+          "defKey": "PHONE",
+          "defName": "手机号",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "171CBFF9-4D25-4DC5-8C02-133B14AB6BA2"
+        },
+        {
+          "defKey": "EMAIL",
+          "defName": "邮件地址",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5",
+          "uiHint": "",
+          "id": "6C9FF82B-7760-49FC-92A5-ED37532349CC"
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "6956CB19-D9CA-4653-A8AE-5CF06242D6AC"
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "2381C6B2-C47C-43C6-BE46-08C161222206"
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "EC84C485-A0E3-4137-8162-C02FBBC49402"
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "37616D89-C5F4-4695-8527-E15A668EF333"
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "A5F2B9F2-BBF9-43C1-8898-24A5FEC1CA16"
+        }
+      ],
+      "correlations": [],
+      "indexes": [],
+      "id": "DD93DB82-1188-42FE-87E6-C3B15D27E015"
+    },
+    {
+      "defKey": "GDPT_ROLE",
+      "defName": "角色",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "ROLE_ID",
+          "defName": "角色ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "FF239F56-78A4-467A-B9D1-AA51FEEC920F"
+        },
+        {
+          "defKey": "ROLE_NAME",
+          "defName": "角色名",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 90,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "4F3B2E68-64F3-46B1-A36B-3D229135A1FF",
+          "uiHint": "",
+          "id": "8A6B2FC9-5258-44C4-AA1C-E4584F252AC7"
+        },
+        {
+          "defKey": "ROLE_INTRO",
+          "defName": "角色介绍",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 1000,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "",
+          "uiHint": "",
+          "id": "48E0C621-AEB4-4550-BF87-B0F65061AFC4"
+        },
+        {
+          "defKey": "ROLE_LEVEL",
+          "defName": "角色级别",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "5FDB7A32-9F7B-4F4F-B669-4F04AB3F6336",
+          "uiHint": "",
+          "id": "A7140B35-12D8-47E4-AE2A-461D83513D32"
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "1FAF6D5B-146A-4D81-8548-47868701EAB1"
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "BAB3AEFA-184D-4383-A419-CACE6913B7D9"
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "5E39BBE1-8803-4FD1-A76D-3661948D76E0"
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "C1CFDFAE-F519-4D0F-96CC-FC5BD37C2E8F"
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "F5EDF4C5-99C5-4F11-8115-F5547A6A9EB4"
+        }
+      ],
+      "correlations": [],
+      "indexes": [],
+      "id": "1724FEE8-1513-43FA-A0ED-DD3386E2248B"
+    },
+    {
+      "defKey": "GDPT_USER_ROLE",
+      "defName": "用户角色",
+      "comment": "",
+      "properties": {
+        "partitionBy": ""
+      },
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "type",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "len",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "scale",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "ID",
+          "defName": "ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "3E20B4F8-A66F-4AB1-8FA7-FAFE373C2272"
+        },
+        {
+          "defKey": "ROLE_ID",
+          "defName": "角色ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "3EF2746A-85AB-4401-BC53-0DDA673DFA9B"
+        },
+        {
+          "defKey": "USER_ID",
+          "defName": "用户ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "84876C40-BF67-45EC-B248-0B86933DCE12"
+        },
+        {
+          "defKey": "REVISION",
+          "defName": "乐观锁",
+          "comment": "",
+          "domain": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "9ECF79D7-A481-4D62-8679-1311CCE3B870"
+        },
+        {
+          "defKey": "CREATED_BY",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "29B832B9-436D-4E5C-9629-A3E5168BDFA8"
+        },
+        {
+          "defKey": "CREATED_TIME",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "6547DC38-DF25-4A37-BC2D-1547228303A9"
+        },
+        {
+          "defKey": "UPDATED_BY",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "type": "VARCHAR",
+          "len": 2,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "8EFA205B-2BAF-4BDD-A7BE-42B783B27E60"
+        },
+        {
+          "defKey": "UPDATED_TIME",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "D837EEAF-E348-404E-BF46-63A833782215",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "uiHint": "",
+          "id": "9857BAA6-1201-4882-B5C2-0E7B430315AF"
+        }
+      ],
+      "correlations": [
+        {
+          "myField": "84876C40-BF67-45EC-B248-0B86933DCE12",
+          "refEntity": "DD93DB82-1188-42FE-87E6-C3B15D27E015",
+          "refField": "95C82F24-582D-4954-AC5D-D8C8A32FCDED",
+          "myRows": "n",
+          "refRows": "1",
+          "innerType": ""
+        },
+        {
+          "myField": "3EF2746A-85AB-4401-BC53-0DDA673DFA9B",
+          "refEntity": "1724FEE8-1513-43FA-A0ED-DD3386E2248B",
+          "refField": "FF239F56-78A4-467A-B9D1-AA51FEEC920F",
+          "myRows": "n",
+          "refRows": "1",
+          "innerType": ""
+        }
+      ],
+      "indexes": [],
+      "id": "2BAE0E72-7A13-4A5D-9C75-EF1BFC23FD10"
+    }
+  ],
+  "views": [],
+  "dicts": [
+    {
+      "defKey": "UserStatus",
+      "defName": "用户状态",
+      "sort": "",
+      "intro": "",
+      "items": [
+        {
+          "defKey": "0",
+          "defName": "冻结",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "CD632F33-AFB9-45A0-BAAD-5684C7B9A88D"
+        },
+        {
+          "defKey": "1",
+          "defName": "正常",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "C9FE8060-173E-40C6-B077-B75D85303468"
+        }
+      ],
+      "id": "5DE5AB19-A216-450D-B671-30978D87DF90"
+    },
+    {
+      "defKey": "PayMethod",
+      "defName": "支付方式",
+      "sort": "",
+      "intro": "",
+      "items": [
+        {
+          "defKey": "OnlinePay",
+          "defName": "在线支付",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "65F0AE96-11D7-4BE2-A701-62857C781FF4"
+        },
+        {
+          "defKey": "COD",
+          "defName": "货到付款",
+          "sort": "",
+          "parentKey": "",
+          "intro": "cash on delivery",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "9854413B-95C6-46B0-BBD7-552DADEEBD0C"
+        }
+      ],
+      "id": "CA4E9CF9-5533-44B4-B5AB-33EF7DD6E233"
+    },
+    {
+      "defKey": "InvoiceType",
+      "defName": "发票类型",
+      "sort": "",
+      "intro": "",
+      "items": [
+        {
+          "defKey": "Electronic",
+          "defName": "电子普通发票",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "A4DE2F59-054A-414F-8AB5-2BE3BB2D1FD7"
+        },
+        {
+          "defKey": "Special",
+          "defName": "增值税专用发票",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "13E0E403-A73A-4B27-A91D-08BD2FCE6DEF"
+        }
+      ],
+      "id": "C2B9D86C-0DFD-4372-A810-2155864121FD"
+    },
+    {
+      "defKey": "InvoiceHeaderType",
+      "defName": "发票抬头类型",
+      "sort": "",
+      "intro": "",
+      "items": [
+        {
+          "defKey": "Ent",
+          "defName": "企业",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "B87E1523-71A8-4835-BC68-B2155CC0C68D"
+        },
+        {
+          "defKey": "Ind",
+          "defName": "个人",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "EE8C2400-A8F8-428A-875D-18D972012999"
+        }
+      ],
+      "id": "3CFADAB4-9ED0-414A-A18A-B38EB5D7AC65"
+    },
+    {
+      "defKey": "OrderStatus",
+      "defName": "订单状态",
+      "sort": "",
+      "intro": "",
+      "items": [
+        {
+          "defKey": "0",
+          "defName": "未支付",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "75E8ABC8-CAE1-415B-8BF0-316E1A578A84"
+        },
+        {
+          "defKey": "1",
+          "defName": "已支付",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "EDC93C43-51B9-4313-A0F1-6FAD48989676"
+        },
+        {
+          "defKey": "2",
+          "defName": "已取消",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "AC663889-12A4-4B11-B91A-BA4824F56FCF"
+        }
+      ],
+      "id": "C88B2E20-912F-49D2-A353-CE763A82D2C6"
+    },
+    {
+      "defKey": "SellerStatus",
+      "defName": "商家状态",
+      "sort": "",
+      "intro": "",
+      "items": [
+        {
+          "defKey": "1",
+          "defName": "正常",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "__key": "5F4E7ECF-2976-41A9-AFC8-94C5003819D3",
+          "id": "4BBF9427-A334-44FD-B3F0-5C6E73524CE9"
+        },
+        {
+          "defKey": "2",
+          "defName": "封禁",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "__key": "3D92FE05-64C9-43E7-AD2D-9FFEADA4ECEE",
+          "id": "8D3ADCA1-F629-461C-9FB6-4455F9292394"
+        },
+        {
+          "defKey": "3",
+          "defName": "注销",
+          "sort": "",
+          "parentKey": "",
+          "intro": "",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "__key": "A607AC76-0F3B-435B-8308-3F655D2130A6",
+          "id": "2808A364-2D42-4135-81B4-8D8683A5E550"
+        }
+      ],
+      "id": "A1FA6096-E8A9-4AFD-B41E-A595785DD7D0"
+    },
+    {
+      "defKey": "CartStatus",
+      "defName": "购物车状态",
+      "sort": "",
+      "intro": "",
+      "items": [
+        {
+          "defKey": "0",
+          "defName": "待确认",
+          "sort": "1",
+          "parentKey": "",
+          "intro": "未进入订单",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "CD3A3EB5-E254-4E9F-BC90-FF49F4FC385F"
+        },
+        {
+          "defKey": "1",
+          "defName": "已确认",
+          "sort": "2",
+          "parentKey": "",
+          "intro": "进入订单",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "DD58D367-42CF-4E04-A306-0293C5063713"
+        }
+      ],
+      "id": "1E7CD4EB-5DFB-4909-A6BE-D03AC800A2AB"
+    }
+  ],
+  "viewGroups": [
+    {
+      "defKey": "BUYER",
+      "defName": "消费端",
+      "refEntities": [
+        "B048731C-07A9-44AE-B533-7C6AB6C3E797",
+        "4E17DB24-EC61-42B3-8EE5-DE8F06618356",
+        "C484DDD6-5597-4838-BAA8-87DE939134B4",
+        "06CD9B20-3D05-4DA8-8ABE-8E5E200D9BC5",
+        "788EB337-43A6-46D9-B714-351F2FFAB473",
+        "95BCC66C-1CF7-4494-A01B-2A976080E52D"
+      ],
+      "refViews": [],
+      "refDiagrams": [
+        "3BF08328-1CD0-4D93-874E-D1D6D6CDDBDF",
+        "11BE5D70-89FE-4F2C-AF25-6F7B50C07D6C"
+      ],
+      "refDicts": [
+        "5DE5AB19-A216-450D-B671-30978D87DF90",
+        "CA4E9CF9-5533-44B4-B5AB-33EF7DD6E233",
+        "C2B9D86C-0DFD-4372-A810-2155864121FD",
+        "3CFADAB4-9ED0-414A-A18A-B38EB5D7AC65",
+        "C88B2E20-912F-49D2-A353-CE763A82D2C6",
+        "1E7CD4EB-5DFB-4909-A6BE-D03AC800A2AB"
+      ],
+      "id": "1F80C240-15F6-4CB0-8A86-575B15C8D793"
+    },
+    {
+      "defKey": "SELLER",
+      "defName": "商家端",
+      "refEntities": [],
+      "refViews": [],
+      "refDiagrams": [],
+      "refDicts": [],
+      "id": "C87CCE92-FAE9-40B0-A63E-EB2D381F02B6"
+    },
+    {
+      "defKey": "GODPLAT",
+      "defName": "平台端",
+      "refEntities": [
+        "860B3D7B-06D1-4526-A525-F0E8256F7DE2",
+        "777FA2AD-5059-4863-8707-924B7918C9E6",
+        "DD93DB82-1188-42FE-87E6-C3B15D27E015",
+        "1724FEE8-1513-43FA-A0ED-DD3386E2248B",
+        "2BAE0E72-7A13-4A5D-9C75-EF1BFC23FD10"
+      ],
+      "refViews": [],
+      "refDiagrams": [
+        "2A59830E-E872-4250-96D5-91CBE1EEB7F7"
+      ],
+      "refDicts": [
+        "A1FA6096-E8A9-4AFD-B41E-A595785DD7D0"
+      ],
+      "id": "C6E0154F-B09A-4AD3-AC7F-C92489D0012A"
+    }
+  ],
+  "dataTypeMapping": {
+    "referURL": "",
+    "mappings": [
+      {
+        "defKey": "string",
+        "defName": "字串",
+        "id": "CF199868-49BB-4A83-AFDF-4457FF82DF20",
+        "08B7B30E-874F-4522-B139-3759B57A977F": "VARCHAR",
+        "55E9C463-886A-43C5-83C5-CC8234DF748A": "VARCHAR2",
+        "E7A66588-7F30-47D1-97C7-1AC5561A8A22": "VARCHAR",
+        "A69F5DA2-4286-40B9-938F-864AB45BEA0C": "VARCHAR",
+        "99644375-5EDD-4672-8858-0804848B5911": "VARCHAR",
+        "C9AB2387-AC9C-4BEA-AC76-D6547382567C": "VARCHAR2",
+        "FDD5476E-2710-4C95-8D91-7230D6A7BF12": "String",
+        "F7AFB3F1-D56B-412A-B47B-9EC97DF4D6BE": "string"
+      },
+      {
+        "defKey": "double",
+        "defName": "小数",
+        "id": "DC7C01A7-2BDB-430B-80BC-4657BD7492F2",
+        "08B7B30E-874F-4522-B139-3759B57A977F": "DECIMAL",
+        "55E9C463-886A-43C5-83C5-CC8234DF748A": "DECIMAL",
+        "E7A66588-7F30-47D1-97C7-1AC5561A8A22": "DECIMAL",
+        "A69F5DA2-4286-40B9-938F-864AB45BEA0C": "NUMERIC",
+        "99644375-5EDD-4672-8858-0804848B5911": "DECIMAL",
+        "C9AB2387-AC9C-4BEA-AC76-D6547382567C": "DECIMAL",
+        "FDD5476E-2710-4C95-8D91-7230D6A7BF12": "Double",
+        "F7AFB3F1-D56B-412A-B47B-9EC97DF4D6BE": "float"
+      },
+      {
+        "defKey": "int",
+        "defName": "整数",
+        "id": "F6297B19-61D4-4C30-BD53-4E0B5B8E0A4A",
+        "08B7B30E-874F-4522-B139-3759B57A977F": "INT",
+        "55E9C463-886A-43C5-83C5-CC8234DF748A": "INT",
+        "E7A66588-7F30-47D1-97C7-1AC5561A8A22": "INT",
+        "A69F5DA2-4286-40B9-938F-864AB45BEA0C": "INTEGER",
+        "99644375-5EDD-4672-8858-0804848B5911": "INT",
+        "C9AB2387-AC9C-4BEA-AC76-D6547382567C": "INTEGER",
+        "FDD5476E-2710-4C95-8D91-7230D6A7BF12": "Integer",
+        "F7AFB3F1-D56B-412A-B47B-9EC97DF4D6BE": "float"
+      },
+      {
+        "defKey": "date",
+        "defName": "日期",
+        "id": "9FA7B910-01F2-4C73-B97A-22A8D5AD778E",
+        "08B7B30E-874F-4522-B139-3759B57A977F": "DATETIME",
+        "55E9C463-886A-43C5-83C5-CC8234DF748A": "DATE",
+        "E7A66588-7F30-47D1-97C7-1AC5561A8A22": "DATETIME",
+        "A69F5DA2-4286-40B9-938F-864AB45BEA0C": "DATE",
+        "99644375-5EDD-4672-8858-0804848B5911": "DATE",
+        "C9AB2387-AC9C-4BEA-AC76-D6547382567C": "DATE",
+        "FDD5476E-2710-4C95-8D91-7230D6A7BF12": "Date",
+        "F7AFB3F1-D56B-412A-B47B-9EC97DF4D6BE": "date"
+      },
+      {
+        "defKey": "bytes",
+        "defName": "二进制",
+        "id": "FB0A7039-349E-4813-B389-0A738AA240E6",
+        "08B7B30E-874F-4522-B139-3759B57A977F": "BLOB",
+        "55E9C463-886A-43C5-83C5-CC8234DF748A": "BLOB",
+        "E7A66588-7F30-47D1-97C7-1AC5561A8A22": "VARBINARY",
+        "A69F5DA2-4286-40B9-938F-864AB45BEA0C": "BYTEA",
+        "99644375-5EDD-4672-8858-0804848B5911": "BLOB",
+        "C9AB2387-AC9C-4BEA-AC76-D6547382567C": "BLOB",
+        "FDD5476E-2710-4C95-8D91-7230D6A7BF12": "byte[]",
+        "F7AFB3F1-D56B-412A-B47B-9EC97DF4D6BE": "binary"
+      },
+      {
+        "defKey": "largeText",
+        "defName": "大文本",
+        "id": "27C91E82-6D8C-46DC-8B55-BB96FE2C69F1",
+        "08B7B30E-874F-4522-B139-3759B57A977F": "TEXT",
+        "55E9C463-886A-43C5-83C5-CC8234DF748A": "CLOB",
+        "E7A66588-7F30-47D1-97C7-1AC5561A8A22": "TEXT",
+        "A69F5DA2-4286-40B9-938F-864AB45BEA0C": "TEXT",
+        "99644375-5EDD-4672-8858-0804848B5911": "CLOB",
+        "C9AB2387-AC9C-4BEA-AC76-D6547382567C": "CLOB",
+        "FDD5476E-2710-4C95-8D91-7230D6A7BF12": "String",
+        "F7AFB3F1-D56B-412A-B47B-9EC97DF4D6BE": "string"
+      }
+    ]
+  },
+  "domains": [
+    {
+      "defKey": "DefaultString",
+      "defName": "默认字串",
+      "applyFor": "CF199868-49BB-4A83-AFDF-4457FF82DF20",
+      "len": "60",
+      "scale": "",
+      "uiHint": "",
+      "id": "0CC2851D-43B3-4366-AAD8-DB7F48BBFFC5"
+    },
+    {
+      "defKey": "IdOrKey",
+      "defName": "主键标识",
+      "applyFor": "CF199868-49BB-4A83-AFDF-4457FF82DF20",
+      "len": 32,
+      "scale": "",
+      "uiHint": "",
+      "id": "A8137149-F0AC-45A9-8566-D683CD534699"
+    },
+    {
+      "defKey": "Name",
+      "defName": "名称",
+      "applyFor": "CF199868-49BB-4A83-AFDF-4457FF82DF20",
+      "len": 90,
+      "scale": "",
+      "uiHint": "",
+      "id": "4F3B2E68-64F3-46B1-A36B-3D229135A1FF"
+    },
+    {
+      "defKey": "Int",
+      "defName": "整数",
+      "applyFor": "F6297B19-61D4-4C30-BD53-4E0B5B8E0A4A",
+      "len": "",
+      "scale": "",
+      "uiHint": "",
+      "id": "BB044881-70D1-4D01-89C9-A6A1C7B8FD98"
+    },
+    {
+      "defKey": "Double",
+      "defName": "小数",
+      "applyFor": "DC7C01A7-2BDB-430B-80BC-4657BD7492F2",
+      "len": 24,
+      "scale": 6,
+      "uiHint": "",
+      "id": "F4BD678B-59BA-491A-9D63-571151178F4F"
+    },
+    {
+      "defKey": "Money",
+      "defName": "金额",
+      "applyFor": "DC7C01A7-2BDB-430B-80BC-4657BD7492F2",
+      "len": 24,
+      "scale": 6,
+      "uiHint": "",
+      "id": "0BB42C53-FD52-4FC5-8845-03E95DF12C69"
+    },
+    {
+      "defKey": "DateTime",
+      "defName": "日期时间",
+      "applyFor": "9FA7B910-01F2-4C73-B97A-22A8D5AD778E",
+      "len": "",
+      "scale": "",
+      "uiHint": "",
+      "id": "D837EEAF-E348-404E-BF46-63A833782215"
+    },
+    {
+      "defKey": "YesNo",
+      "defName": "是否",
+      "applyFor": "CF199868-49BB-4A83-AFDF-4457FF82DF20",
+      "len": "1",
+      "scale": "",
+      "uiHint": "",
+      "id": "EB771ED4-3341-49C8-B90E-26607FC78E6A"
+    },
+    {
+      "defKey": "Dict",
+      "defName": "数据字典",
+      "applyFor": "CF199868-49BB-4A83-AFDF-4457FF82DF20",
+      "len": "32",
+      "scale": "",
+      "uiHint": "",
+      "id": "5FDB7A32-9F7B-4F4F-B669-4F04AB3F6336"
+    },
+    {
+      "defKey": "DescText",
+      "defName": "描述文本",
+      "applyFor": "CF199868-49BB-4A83-AFDF-4457FF82DF20",
+      "len": "900",
+      "scale": "",
+      "uiHint": "",
+      "id": "E5DBC33A-DA91-4028-BAF2-3D08EBDE557A"
+    }
+  ],
+  "diagrams": [
+    {
+      "defKey": "PrimaryObject1",
+      "defName": "关键业务对象示图",
+      "canvasData": {
+        "cells": [
+          {
+            "id": "9815d27b-2978-4e81-b1f3-aa8495219ed7",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "a5dd0095-af48-49ec-a035-80367f948309",
+              "port": "out2"
+            },
+            "target": {
+              "cell": "e636a59d-c9f8-4860-bfd2-b59a97901670",
+              "port": "in2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "f8e472eb-6c73-4666-ad71-633f7b0aa24c",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "e636a59d-c9f8-4860-bfd2-b59a97901670",
+              "port": "out2"
+            },
+            "target": {
+              "cell": "8816f965-4059-4576-8d25-ffe9812255a8",
+              "port": "in2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "ea2253fb-574f-4b47-98f9-c8e235b25462",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "8816f965-4059-4576-8d25-ffe9812255a8",
+              "port": "bottom2"
+            },
+            "target": {
+              "cell": "d6379e95-fd67-4620-aff3-a4db49e6985f",
+              "port": "top3"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "1be921b8-b540-49c9-978e-77c0aebf63b3",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "e636a59d-c9f8-4860-bfd2-b59a97901670",
+              "port": "bottom2"
+            },
+            "target": {
+              "cell": "d6379e95-fd67-4620-aff3-a4db49e6985f",
+              "port": "top"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "a650f8d3-f772-4452-a4e2-ba5b97ab3a4f",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "a5dd0095-af48-49ec-a035-80367f948309",
+              "port": "bottom2"
+            },
+            "target": {
+              "cell": "0dcda990-f849-4775-b3fe-f6c4ff9db94d",
+              "port": "top2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "651d6de2-22ce-4603-883c-bef0222693a2",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "0dcda990-f849-4775-b3fe-f6c4ff9db94d",
+              "port": "bottom2"
+            },
+            "target": {
+              "cell": "8816f965-4059-4576-8d25-ffe9812255a8",
+              "port": "bottom3"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "5bc7bdb2-0b37-46b1-9f12-5ed56e32faf5",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "8816f965-4059-4576-8d25-ffe9812255a8",
+              "port": "top2"
+            },
+            "target": {
+              "cell": "791884bb-ab6b-4b81-b461-7f37d829d821",
+              "port": "bottom2"
+            },
+            "relation": "1:1",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "ce766703-17aa-4f61-aaf7-29b427f2aae5",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "5ab9b20e-a640-41c0-bc29-805e13d7c4d1",
+              "port": "bottom2"
+            },
+            "target": {
+              "cell": "e636a59d-c9f8-4860-bfd2-b59a97901670",
+              "port": "top2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "52b5387f-be32-4a4b-80ce-98ff54583085",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "a755e17e-3c34-406d-b4fa-63721f0540eb",
+              "port": "in2"
+            },
+            "target": {
+              "cell": "8816f965-4059-4576-8d25-ffe9812255a8",
+              "port": "out"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "aa623e5d-8a61-40c0-a920-917b2c95d725",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "f24c29d8-a7e4-4348-9794-8b8652e561fc",
+              "port": "in2"
+            },
+            "target": {
+              "cell": "8816f965-4059-4576-8d25-ffe9812255a8",
+              "port": "out2"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "4f2e995e-fda3-4872-b460-8668856a96cb",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "a2120170-c695-4b8b-b7c6-375425b8dd33",
+              "port": "in2"
+            },
+            "target": {
+              "cell": "8816f965-4059-4576-8d25-ffe9812255a8",
+              "port": "out3"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "0dcda990-f849-4775-b3fe-f6c4ff9db94d",
+            "shape": "edit-node",
+            "position": {
+              "x": 90,
+              "y": 202
+            },
+            "label": "地址",
+            "fontColor": "#ffffff",
+            "fillColor": "#093299",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            },
+            "ports": {
+              "groups": {
+                "in": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "left"
+                  }
+                },
+                "out": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "right"
+                  }
+                },
+                "top": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "top"
+                  }
+                },
+                "bottom": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "bottom"
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "in",
+                  "id": "in"
+                },
+                {
+                  "group": "in",
+                  "id": "in2"
+                },
+                {
+                  "group": "in",
+                  "id": "in3"
+                },
+                {
+                  "group": "out",
+                  "id": "out"
+                },
+                {
+                  "group": "out",
+                  "id": "out2"
+                },
+                {
+                  "group": "out",
+                  "id": "out3"
+                },
+                {
+                  "group": "top",
+                  "id": "top"
+                },
+                {
+                  "group": "top",
+                  "id": "top2"
+                },
+                {
+                  "group": "top",
+                  "id": "top3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "d6379e95-fd67-4620-aff3-a4db49e6985f",
+            "shape": "edit-node",
+            "position": {
+              "x": 320,
+              "y": 202
+            },
+            "label": "商品明细",
+            "fillColor": "#ffd966",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            },
+            "ports": {
+              "groups": {
+                "in": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "left"
+                  }
+                },
+                "out": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "right"
+                  }
+                },
+                "top": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "top"
+                  }
+                },
+                "bottom": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "bottom"
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "in",
+                  "id": "in"
+                },
+                {
+                  "group": "in",
+                  "id": "in2"
+                },
+                {
+                  "group": "in",
+                  "id": "in3"
+                },
+                {
+                  "group": "out",
+                  "id": "out"
+                },
+                {
+                  "group": "out",
+                  "id": "out2"
+                },
+                {
+                  "group": "out",
+                  "id": "out3"
+                },
+                {
+                  "group": "top",
+                  "id": "top"
+                },
+                {
+                  "group": "top",
+                  "id": "top2"
+                },
+                {
+                  "group": "top",
+                  "id": "top3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "5ab9b20e-a640-41c0-bc29-805e13d7c4d1",
+            "shape": "edit-node",
+            "position": {
+              "x": 240,
+              "y": -32
+            },
+            "label": "商家",
+            "fontColor": "#ffffff",
+            "fillColor": "#c00000",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            },
+            "ports": {
+              "groups": {
+                "in": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "left"
+                  }
+                },
+                "out": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "right"
+                  }
+                },
+                "top": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "top"
+                  }
+                },
+                "bottom": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "bottom"
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "in",
+                  "id": "in"
+                },
+                {
+                  "group": "in",
+                  "id": "in2"
+                },
+                {
+                  "group": "in",
+                  "id": "in3"
+                },
+                {
+                  "group": "out",
+                  "id": "out"
+                },
+                {
+                  "group": "out",
+                  "id": "out2"
+                },
+                {
+                  "group": "out",
+                  "id": "out3"
+                },
+                {
+                  "group": "top",
+                  "id": "top"
+                },
+                {
+                  "group": "top",
+                  "id": "top2"
+                },
+                {
+                  "group": "top",
+                  "id": "top3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "a755e17e-3c34-406d-b4fa-63721f0540eb",
+            "shape": "edit-node",
+            "position": {
+              "x": 536,
+              "y": -12
+            },
+            "label": "优惠券",
+            "fillColor": "#9acc98",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            },
+            "ports": {
+              "groups": {
+                "in": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "left"
+                  }
+                },
+                "out": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "right"
+                  }
+                },
+                "top": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "top"
+                  }
+                },
+                "bottom": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "bottom"
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "in",
+                  "id": "in"
+                },
+                {
+                  "group": "in",
+                  "id": "in2"
+                },
+                {
+                  "group": "in",
+                  "id": "in3"
+                },
+                {
+                  "group": "out",
+                  "id": "out"
+                },
+                {
+                  "group": "out",
+                  "id": "out2"
+                },
+                {
+                  "group": "out",
+                  "id": "out3"
+                },
+                {
+                  "group": "top",
+                  "id": "top"
+                },
+                {
+                  "group": "top",
+                  "id": "top2"
+                },
+                {
+                  "group": "top",
+                  "id": "top3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "6912bd70-8222-456a-b34f-c02c77e8926a",
+            "shape": "edit-node-circle",
+            "position": {
+              "x": 270,
+              "y": 302
+            },
+            "label": "商品明细同购物车\n同订单同多方关联",
+            "fontColor": "#c00000",
+            "fillColor": "#ffd966",
+            "size": {
+              "width": 180,
+              "height": 60
+            },
+            "ports": {
+              "groups": {
+                "in": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "left"
+                  }
+                },
+                "out": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "right"
+                  }
+                },
+                "top": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "top"
+                  }
+                },
+                "bottom": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "bottom"
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "in",
+                  "id": "in"
+                },
+                {
+                  "group": "in",
+                  "id": "in2"
+                },
+                {
+                  "group": "in",
+                  "id": "in3"
+                },
+                {
+                  "group": "out",
+                  "id": "out"
+                },
+                {
+                  "group": "out",
+                  "id": "out2"
+                },
+                {
+                  "group": "out",
+                  "id": "out3"
+                },
+                {
+                  "group": "top",
+                  "id": "top"
+                },
+                {
+                  "group": "top",
+                  "id": "top2"
+                },
+                {
+                  "group": "top",
+                  "id": "top3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "f24c29d8-a7e4-4348-9794-8b8652e561fc",
+            "shape": "edit-node",
+            "position": {
+              "x": 536,
+              "y": 80
+            },
+            "label": "地址",
+            "fillColor": "#9acc98",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            },
+            "ports": {
+              "groups": {
+                "in": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "left"
+                  }
+                },
+                "out": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "right"
+                  }
+                },
+                "top": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "top"
+                  }
+                },
+                "bottom": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "bottom"
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "in",
+                  "id": "in"
+                },
+                {
+                  "group": "in",
+                  "id": "in2"
+                },
+                {
+                  "group": "in",
+                  "id": "in3"
+                },
+                {
+                  "group": "out",
+                  "id": "out"
+                },
+                {
+                  "group": "out",
+                  "id": "out2"
+                },
+                {
+                  "group": "out",
+                  "id": "out3"
+                },
+                {
+                  "group": "top",
+                  "id": "top"
+                },
+                {
+                  "group": "top",
+                  "id": "top2"
+                },
+                {
+                  "group": "top",
+                  "id": "top3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "a2120170-c695-4b8b-b7c6-375425b8dd33",
+            "shape": "edit-node",
+            "position": {
+              "x": 536,
+              "y": 172
+            },
+            "label": "发票",
+            "fillColor": "#9acc98",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            },
+            "ports": {
+              "groups": {
+                "in": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "left"
+                  }
+                },
+                "out": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "right"
+                  }
+                },
+                "top": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "top"
+                  }
+                },
+                "bottom": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "bottom"
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "in",
+                  "id": "in"
+                },
+                {
+                  "group": "in",
+                  "id": "in2"
+                },
+                {
+                  "group": "in",
+                  "id": "in3"
+                },
+                {
+                  "group": "out",
+                  "id": "out"
+                },
+                {
+                  "group": "out",
+                  "id": "out2"
+                },
+                {
+                  "group": "out",
+                  "id": "out3"
+                },
+                {
+                  "group": "top",
+                  "id": "top"
+                },
+                {
+                  "group": "top",
+                  "id": "top2"
+                },
+                {
+                  "group": "top",
+                  "id": "top3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "8816f965-4059-4576-8d25-ffe9812255a8",
+            "shape": "edit-node",
+            "position": {
+              "x": 400,
+              "y": 80
+            },
+            "label": "订单",
+            "fillColor": "#ffc000",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            },
+            "ports": {
+              "groups": {
+                "in": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "left"
+                  }
+                },
+                "out": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "right"
+                  }
+                },
+                "top": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "top"
+                  }
+                },
+                "bottom": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "bottom"
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "in",
+                  "id": "in"
+                },
+                {
+                  "group": "in",
+                  "id": "in2"
+                },
+                {
+                  "group": "in",
+                  "id": "in3"
+                },
+                {
+                  "group": "out",
+                  "id": "out"
+                },
+                {
+                  "group": "out",
+                  "id": "out2"
+                },
+                {
+                  "group": "out",
+                  "id": "out3"
+                },
+                {
+                  "group": "top",
+                  "id": "top"
+                },
+                {
+                  "group": "top",
+                  "id": "top2"
+                },
+                {
+                  "group": "top",
+                  "id": "top3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom3"
+                },
+                {
+                  "id": "out4",
+                  "group": "out"
+                }
+              ]
+            }
+          },
+          {
+            "id": "791884bb-ab6b-4b81-b461-7f37d829d821",
+            "shape": "edit-node",
+            "position": {
+              "x": 400,
+              "y": -32
+            },
+            "label": "支付",
+            "fillColor": "#ffc000",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            },
+            "ports": {
+              "groups": {
+                "in": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "left"
+                  }
+                },
+                "out": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "right"
+                  }
+                },
+                "top": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "top"
+                  }
+                },
+                "bottom": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "bottom"
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "in",
+                  "id": "in"
+                },
+                {
+                  "group": "in",
+                  "id": "in2"
+                },
+                {
+                  "group": "in",
+                  "id": "in3"
+                },
+                {
+                  "group": "out",
+                  "id": "out"
+                },
+                {
+                  "group": "out",
+                  "id": "out2"
+                },
+                {
+                  "group": "out",
+                  "id": "out3"
+                },
+                {
+                  "group": "top",
+                  "id": "top"
+                },
+                {
+                  "group": "top",
+                  "id": "top2"
+                },
+                {
+                  "group": "top",
+                  "id": "top3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "c975bdd6-726c-4a59-8d0c-943f049b7c24",
+            "shape": "edit-node-circle",
+            "position": {
+              "x": 220,
+              "y": -79.99999999999997
+            },
+            "label": "商家对象在商家端",
+            "size": {
+              "width": 120,
+              "height": 30
+            },
+            "ports": {
+              "groups": {
+                "in": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "left"
+                  }
+                },
+                "out": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "right"
+                  }
+                },
+                "top": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "top"
+                  }
+                },
+                "bottom": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "bottom"
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "in",
+                  "id": "in"
+                },
+                {
+                  "group": "in",
+                  "id": "in2"
+                },
+                {
+                  "group": "in",
+                  "id": "in3"
+                },
+                {
+                  "group": "out",
+                  "id": "out"
+                },
+                {
+                  "group": "out",
+                  "id": "out2"
+                },
+                {
+                  "group": "out",
+                  "id": "out3"
+                },
+                {
+                  "group": "top",
+                  "id": "top"
+                },
+                {
+                  "group": "top",
+                  "id": "top2"
+                },
+                {
+                  "group": "top",
+                  "id": "top3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "e636a59d-c9f8-4860-bfd2-b59a97901670",
+            "shape": "edit-node",
+            "position": {
+              "x": 240,
+              "y": 80
+            },
+            "label": "购物车",
+            "fillColor": "#6698cc",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            },
+            "ports": {
+              "groups": {
+                "in": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "left"
+                  }
+                },
+                "out": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "right"
+                  }
+                },
+                "top": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "top"
+                  }
+                },
+                "bottom": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "bottom"
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "in",
+                  "id": "in"
+                },
+                {
+                  "group": "in",
+                  "id": "in2"
+                },
+                {
+                  "group": "in",
+                  "id": "in3"
+                },
+                {
+                  "group": "out",
+                  "id": "out"
+                },
+                {
+                  "group": "out",
+                  "id": "out2"
+                },
+                {
+                  "group": "out",
+                  "id": "out3"
+                },
+                {
+                  "group": "top",
+                  "id": "top"
+                },
+                {
+                  "group": "top",
+                  "id": "top2"
+                },
+                {
+                  "group": "top",
+                  "id": "top3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "a5dd0095-af48-49ec-a035-80367f948309",
+            "shape": "edit-node",
+            "position": {
+              "x": 90,
+              "y": 80
+            },
+            "label": "买家",
+            "fillColor": "#6698cc",
+            "size": {
+              "width": 80,
+              "height": 60,
+              "minHeight": 20
+            },
+            "ports": {
+              "groups": {
+                "in": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "left"
+                  }
+                },
+                "out": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "right"
+                  }
+                },
+                "top": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "top"
+                  }
+                },
+                "bottom": {
+                  "attrs": {
+                    "fo": {
+                      "width": 8,
+                      "height": 8,
+                      "x": -4,
+                      "y": -4,
+                      "magnet": "true",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  },
+                  "zIndex": 3,
+                  "position": {
+                    "name": "bottom"
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "in",
+                  "id": "in"
+                },
+                {
+                  "group": "in",
+                  "id": "in2"
+                },
+                {
+                  "group": "in",
+                  "id": "in3"
+                },
+                {
+                  "group": "out",
+                  "id": "out"
+                },
+                {
+                  "group": "out",
+                  "id": "out2"
+                },
+                {
+                  "group": "out",
+                  "id": "out3"
+                },
+                {
+                  "group": "top",
+                  "id": "top"
+                },
+                {
+                  "group": "top",
+                  "id": "top2"
+                },
+                {
+                  "group": "top",
+                  "id": "top3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom2"
+                },
+                {
+                  "group": "bottom",
+                  "id": "bottom3"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "id": "3BF08328-1CD0-4D93-874E-D1D6D6CDDBDF"
+    },
+    {
+      "defKey": "KeyEntities",
+      "defName": "关键数据表",
+      "canvasData": {
+        "cells": [
+          {
+            "id": "9d1811f2-5117-490e-9e3f-c7976ab09a64",
+            "shape": "table",
+            "position": {
+              "x": 950,
+              "y": 430
+            },
+            "count": 0,
+            "originKey": "06CD9B20-3D05-4DA8-8ABE-8E5E200D9BC5"
+          },
+          {
+            "id": "466d02ba-51c4-4140-b98e-752c30172ea2",
+            "shape": "table",
+            "position": {
+              "x": 1470,
+              "y": 90
+            },
+            "count": 0,
+            "originKey": "788EB337-43A6-46D9-B714-351F2FFAB473"
+          },
+          {
+            "id": "5769220d-b713-4e55-a726-7743e4138795",
+            "shape": "table",
+            "position": {
+              "x": 960,
+              "y": 80
+            },
+            "count": 0,
+            "originKey": "4E17DB24-EC61-42B3-8EE5-DE8F06618356"
+          },
+          {
+            "id": "2e25ddd1-5417-47a6-8747-9453a2284228",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "839d7f05-4ebf-4ce7-a6e4-2ece22b371aa",
+              "port": "BF8F97C6-D729-4D70-BF80-562F62223AC7%out"
+            },
+            "target": {
+              "cell": "25c2826e-7cc4-4e93-9339-be72927ad43c",
+              "port": "95E61625-8CEF-4DE8-A7DD-D79D2E681542%in"
+            },
+            "relation": "1:n",
+            "vertices": [
+              {
+                "x": 510,
+                "y": 120
+              }
+            ],
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "6F497751-81B3-4637-BD25-37248D794CD7",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "25c2826e-7cc4-4e93-9339-be72927ad43c",
+              "port": "6F013604-170B-4369-8634-A1CCC0FF7BC6%out"
+            },
+            "target": {
+              "cell": "5769220d-b713-4e55-a726-7743e4138795",
+              "port": "E5947B6F-CAD8-4ACA-9002-50C5C6FDB045%in"
+            },
+            "relation": "1:n"
+          },
+          {
+            "id": "146f2d93-ce94-4209-9a96-aa743f7cd783",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "466d02ba-51c4-4140-b98e-752c30172ea2",
+              "port": "8EFD702F-89F8-4FE9-AE4C-E06DDCF98BE5%in"
+            },
+            "target": {
+              "cell": "5769220d-b713-4e55-a726-7743e4138795",
+              "port": "488C9B46-FFA6-4713-8375-2F30FC498739%out"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "C9D7F783-F27D-46A0-A4C1-E9206CA822FC",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "25c2826e-7cc4-4e93-9339-be72927ad43c",
+              "port": "6F013604-170B-4369-8634-A1CCC0FF7BC6%in"
+            },
+            "target": {
+              "cell": "9d1811f2-5117-490e-9e3f-c7976ab09a64",
+              "port": "2DF5B7DC-8712-4577-8401-839B7BD93FD3%in"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "D74F1406-6D86-4EEF-8BCE-79101D5A76A7",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "5769220d-b713-4e55-a726-7743e4138795",
+              "port": "1F9928C3-060C-4BCF-9BDE-6A98B2EA786E%in"
+            },
+            "target": {
+              "cell": "9d1811f2-5117-490e-9e3f-c7976ab09a64",
+              "port": "5F674AFA-9B14-4DC9-A50D-7149246C28F5%in"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC"
+          },
+          {
+            "id": "25c2826e-7cc4-4e93-9339-be72927ad43c",
+            "shape": "table",
+            "position": {
+              "x": 540,
+              "y": 80
+            },
+            "count": 0,
+            "originKey": "C484DDD6-5597-4838-BAA8-87DE939134B4"
+          },
+          {
+            "id": "839d7f05-4ebf-4ce7-a6e4-2ece22b371aa",
+            "shape": "table",
+            "position": {
+              "x": 90,
+              "y": 80
+            },
+            "count": 0,
+            "originKey": "B048731C-07A9-44AE-B533-7C6AB6C3E797"
+          }
+        ]
+      },
+      "id": "11BE5D70-89FE-4F2C-AF25-6F7B50C07D6C"
+    },
+    {
+      "defKey": "GODPLAT.KeyEntities",
+      "defName": "关键业务对象",
+      "canvasData": {
+        "cells": [
+          {
+            "id": "e13c6d9e-8645-48b4-8821-eea224b0d93d",
+            "shape": "group",
+            "position": {
+              "x": -5.684341886080801e-13,
+              "y": 20.00000000000344
+            },
+            "label": "用户角色",
+            "size": {
+              "width": 1180,
+              "height": 390
+            },
+            "children": [
+              "28fefcd3-556a-4255-b052-16317687fa09",
+              "987ab93c-5b31-4d69-be44-f23e0c0611ee",
+              "A23D03BD-9B7F-4624-B2A8-38EB8663708C",
+              "7bd6648d-c8af-42f1-a7fa-01a1da0f2960",
+              "9800228c-dec6-440f-8914-8da939f180e4"
+            ]
+          },
+          {
+            "id": "6b808fee-4502-419f-95ef-414d808f8f85",
+            "shape": "group",
+            "position": {
+              "x": -2.0463630789890885e-12,
+              "y": 425.0000000000048
+            },
+            "label": "其他公共",
+            "size": {
+              "width": 1180,
+              "height": 400
+            },
+            "children": [
+              "c10412cc-5687-4ba1-8bd7-ef1c538a669d",
+              "f3b83413-c4ed-48f8-a731-fbd7a645672a"
+            ]
+          },
+          {
+            "id": "7bd6648d-c8af-42f1-a7fa-01a1da0f2960",
+            "shape": "table",
+            "position": {
+              "x": 785,
+              "y": 60
+            },
+            "count": 0,
+            "originKey": "1724FEE8-1513-43FA-A0ED-DD3386E2248B",
+            "parent": "e13c6d9e-8645-48b4-8821-eea224b0d93d"
+          },
+          {
+            "id": "28fefcd3-556a-4255-b052-16317687fa09",
+            "shape": "table",
+            "position": {
+              "x": 476.99999999999943,
+              "y": 60
+            },
+            "count": 0,
+            "originKey": "2BAE0E72-7A13-4A5D-9C75-EF1BFC23FD10",
+            "parent": "e13c6d9e-8645-48b4-8821-eea224b0d93d"
+          },
+          {
+            "id": "f3b83413-c4ed-48f8-a731-fbd7a645672a",
+            "shape": "table",
+            "position": {
+              "x": 559.0000000000001,
+              "y": 461.0000000000015
+            },
+            "count": 0,
+            "originKey": "777FA2AD-5059-4863-8707-924B7918C9E6",
+            "parent": "6b808fee-4502-419f-95ef-414d808f8f85"
+          },
+          {
+            "id": "c10412cc-5687-4ba1-8bd7-ef1c538a669d",
+            "shape": "table",
+            "position": {
+              "x": 70,
+              "y": 450
+            },
+            "count": 0,
+            "originKey": "860B3D7B-06D1-4526-A525-F0E8256F7DE2",
+            "parent": "6b808fee-4502-419f-95ef-414d808f8f85"
+          },
+          {
+            "id": "A23D03BD-9B7F-4624-B2A8-38EB8663708C",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "987ab93c-5b31-4d69-be44-f23e0c0611ee",
+              "port": "95C82F24-582D-4954-AC5D-D8C8A32FCDED%out"
+            },
+            "target": {
+              "cell": "28fefcd3-556a-4255-b052-16317687fa09",
+              "port": "84876C40-BF67-45EC-B248-0B86933DCE12%in"
+            },
+            "relation": "1:n",
+            "parent": "e13c6d9e-8645-48b4-8821-eea224b0d93d"
+          },
+          {
+            "id": "9800228c-dec6-440f-8914-8da939f180e4",
+            "shape": "erdRelation",
+            "source": {
+              "cell": "7bd6648d-c8af-42f1-a7fa-01a1da0f2960",
+              "port": "FF239F56-78A4-467A-B9D1-AA51FEEC920F%in"
+            },
+            "target": {
+              "cell": "28fefcd3-556a-4255-b052-16317687fa09",
+              "port": "3EF2746A-85AB-4401-BC53-0DDA673DFA9B%out"
+            },
+            "relation": "1:n",
+            "fillColor": "#ACDAFC",
+            "parent": "e13c6d9e-8645-48b4-8821-eea224b0d93d"
+          },
+          {
+            "id": "987ab93c-5b31-4d69-be44-f23e0c0611ee",
+            "shape": "table",
+            "position": {
+              "x": 60,
+              "y": 60
+            },
+            "count": 0,
+            "originKey": "DD93DB82-1188-42FE-87E6-C3B15D27E015",
+            "parent": "e13c6d9e-8645-48b4-8821-eea224b0d93d"
+          }
+        ]
+      },
+      "id": "2A59830E-E872-4250-96D5-91CBE1EEB7F7"
+    }
+  ],
+  "standardFields": [
+    {
+      "defKey": "消费端",
+      "defName": "Buyer",
+      "fields": [
+        {
+          "defKey": "USER_ID",
+          "defName": "用户ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "5214131F-E049-40A7-8424-7711C904337C"
+        },
+        {
+          "defKey": "ODER_ID",
+          "defName": "订单ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "8399DEFF-8D5F-4452-B748-4D9DCAF89510"
+        },
+        {
+          "defKey": "CART_ID",
+          "defName": "购物车ID",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "A8137149-F0AC-45A9-8566-D683CD534699",
+          "uiHint": "",
+          "id": "00B04295-AC1B-453E-A426-4631FC47F480"
+        }
+      ],
+      "id": "05D802D4-02C8-4947-B3E1-9ACECEAD5945"
+    }
+  ]
+}
