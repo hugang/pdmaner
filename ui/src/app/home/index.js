@@ -9,7 +9,7 @@ import {getPrefix} from '../../lib/prefixUtil';
 
 export default React.memo(({prefix, open, create, rename, updateHistory, openTemplate,
                              ...restProps}) => {
-  const { lang = 'zh' } = restProps?.config;
+  const { lang = 'en' } = restProps?.config;
   const status = restProps?.common?.status;
   const type = restProps?.common?.type;
   const currentPrefix = getPrefix(prefix);

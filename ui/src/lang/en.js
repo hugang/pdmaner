@@ -686,6 +686,7 @@ export default {
             label: 'language',
             zh: 'CHINESE',
             en: 'ENGLISH',
+            jp: 'JAPANESE',
         },
         autoSave: {
             label: 'autoSave',

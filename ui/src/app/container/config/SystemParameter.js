@@ -11,7 +11,9 @@ import AutoBackup from './AutoBackup';
 import Jvm from './JVM';
 import RelationType from './RelationType';
 import { platform } from '../../../lib/middle';
-
+/**
+ * setting --> SystemParameter
+ */
 export default React.memo(({prefix, ...restProps}) => {
   const currentPrefix = getPrefix(prefix);
   return <div className={`${currentPrefix}-setting-system-parameter`}>

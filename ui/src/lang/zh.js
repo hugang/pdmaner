@@ -687,6 +687,7 @@ export default {
             label: '语言',
             zh: '中文',
             en: '英文',
+            jp: '日文',
         },
         autoSave: {
             label: '自动保存',

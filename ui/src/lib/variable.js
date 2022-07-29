@@ -8,4 +8,4 @@ export const CONFIG = 'config';
 export const pageType = ['welcome', 'home', 'main'];
 
 // 语言类型
-export const langType = ['zh', 'en'];
+export const langType = ['zh', 'en', 'jp'];

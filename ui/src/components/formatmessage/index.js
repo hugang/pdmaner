@@ -1,3 +1,6 @@
+/*
+  获取国际化
+*/
 import React, { useContext } from 'react';
 import _ from 'lodash/object';
 
@@ -6,9 +9,11 @@ import { CONFIG } from '../../lib/variable';
 import { ConfigContent } from '../../lib/context';
 import { getMemoryCache } from '../../lib/cache';
 
-const getMessage = ({lang, id, defaultMessage, format, data}) => {
+const getMessage = ({ lang, id, defaultMessage, format, data }) => {
   const reg = /\{(\w+)\}/g; // 国际化变量替换 格式为 {变量名} data中的变量名与之匹配
-  const config = getMemoryCache(CONFIG);
+  // 初始化时还未获取设定内容，初始设置
+  const config = getMemoryCache(CONFIG) || { lang: 'jp' };
+  // 未传语言参数时，默认使用variable中自定义内容
   const langData = allLangData[lang || config.lang];
   const message = _.get(langData, id, defaultMessage);
   const defaultFormat = () => {
@@ -27,9 +32,9 @@ const string = (params) => {
   return getMessage(params);
 };
 
-const FormatMessage = React.memo(({id = '', format, defaultMessage = '', data}) => {
+const FormatMessage = React.memo(({ id = '', format, defaultMessage = '', data }) => {
   const { lang } = useContext(ConfigContent);
-  return getMessage({lang, id, defaultMessage, format, data});
+  return getMessage({ lang, id, defaultMessage, format, data });
 });
 
 FormatMessage.string = string;
