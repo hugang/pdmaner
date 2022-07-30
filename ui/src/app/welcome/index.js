@@ -35,32 +35,12 @@ import { platform } from '../../lib/middle';
 const Welcome = React.memo(({ prefix, getUserData, config, ...restProps }) => {
   const [percent, updatePercent] = useState(50);
   // 由于显示该标题时还无法获取到用户数据，无法支持国际化
-  console.log(FormatMessage);
   const [title, updateTitle] = useState(FormatMessage.string({ id: 'welcomeLoadingConfig' }));
   const [loadingTitle] = useState(FormatMessage.string({ id: 'welcomeLoading' }));
   useEffect(() => {
     // 第一个页面打开 读取各个配置文件
     getUserData();
   }, []);
-  // const updateApp = () => {
-  //   if (platform === 'json') {
-  //     // eslint-disable-next-line global-require,import/no-extraneous-dependencies,no-shadow
-  //     const { ipcRenderer } = require('electron');
-  //     ipcRenderer.send('update');
-  //     restProps.openLoading(`${FormatMessage.string({id: 'download'})}[${0}%]`);
-  //     ipcRenderer.on('updateProgress', (event, progressObj) => {
-  // eslint-disable-next-line max-len
-  //       restProps.openLoading(`${FormatMessage.string({id: 'download'})}[${progressObj.percent.toFixed(2)}%]`);
-  //     });
-  //     ipcRenderer.on('updateEnd', () => {
-  //       restProps.closeLoading();
-  //       Modal.error({
-  //         title: FormatMessage.string({id: 'optFail'}),
-  //         message: FormatMessage.string({id: 'newVersionError'}),
-  //       });
-  //     });
-  //   }
-  // };
   useEffect(() => {
     if (config.result === success) {
       // 读取配置信息成功
@@ -76,10 +56,6 @@ const Welcome = React.memo(({ prefix, getUserData, config, ...restProps }) => {
               closeable: !res.forceUpdate,
               bodyStyle: { width: 'auto' },
               contentStyle: { width: '800px' },
-              // eslint-disable-next-line max-len
-              // buttons: process.platform === 'win32' ? [<Button type='primary' key='ok' onClick={updateApp}>
-              //   {FormatMessage.string({id: 'update'})}
-              // </Button>] : [],
               buttons: [],
             });
           }

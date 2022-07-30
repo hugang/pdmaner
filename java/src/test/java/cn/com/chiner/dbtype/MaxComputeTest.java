@@ -29,8 +29,6 @@ public class MaxComputeTest {
         String[] args =  new String[]{
                 "PingLoadDriverClass",                      //执行什么命令
                 "driver_class_name=com.aliyun.odps.jdbc.OdpsDriver",
-//                "url=jdbc:odps:http://service.cn-hangzhou.maxcompute.aliyun.com/api?project=enet_ws_test&accessId=LTAI5tDgZCS84aYYG37Rif4a&accessKey=oHYOC5JKaDZcLs9lfeo1G0n18LVcsB",
-//                "url=jdbc:odps:http://service.cn-hangzhou.maxcompute.aliyun.com/api?project=enet_ws_test&accessId=LTAI5tDgZCS84aYYG37Rif4a&accessKey=oHYOC5JKaDZcLs9lfeo1G0n18LVcsB",
                 "url=\"jdbc:odps:http://service.cn-hangzhou.maxcompute.aliyun.com/api?project=enet_ws_test{and}accessId=**{and}accessKey=**\"",
                 "out=/Users/asher/workspace/ws-vekai/siner-java/src/test/resources/out/pdc-"+System.nanoTime()+".json"
         };

@@ -120,8 +120,8 @@ export const imgAll = (dataSource, callBack) => {
   }
   return new Promise( async (res, rej) => {
     const result = [];
-    for (let i = 0; i < dataSource.diagrams.length; i += 1){
-      const d = dataSource.diagrams[i];
+    for (const element of dataSource.diagrams){
+      const d = element;
       const hiddenPort = {
         attrs: {
           circle: {

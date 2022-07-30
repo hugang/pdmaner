@@ -15,7 +15,6 @@ export default class MinMap {
     this.calcData({nodes, edges});
   };
   moveCanvas = (data) => {
-    console.log(data.x / 2 * this.scale * this.cav.scaleNumber);
     this.style = {
       left: this.style.left - data.x / 2 * this.scale / this.cav.scaleNumber,
       top: this.style.top - data.y / 2 * this.scale / this.cav.scaleNumber,
