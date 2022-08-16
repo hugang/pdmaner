@@ -171,7 +171,6 @@ export default React.memo(({prefix, properties, propertiesChange, className}) =>
     } else if (e.keyCode === 39) {
       // right
       const valueLength = e.target.value.length;
-      //console.log(e.target.selectionStart);
       const selectionStart = e.target.selectionStart;
       if (selectionStart === valueLength) {
         const { rowKey, cellKey } = getRowAndCellIndex(row, cell, 'right');

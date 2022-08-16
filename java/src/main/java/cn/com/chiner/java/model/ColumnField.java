@@ -43,7 +43,7 @@ import java.util.List;
         "defaultValue",
         "hideInGraph",
 })
-public class ColumnField implements Serializable,Cloneable {
+public class ColumnField implements Serializable, Cloneable {
     @JsonIgnore
     private TableEntity tableEntity;
     private int rowNo;              //行号，从1开始
@@ -131,7 +131,8 @@ public class ColumnField implements Serializable,Cloneable {
 
     /**
      * 字段类型+长度+小数位数
-     * @return
+     *
+     * @return typeFullName
      */
     public String getTypeFullName() {
         return typeFullName;
@@ -221,46 +222,46 @@ public class ColumnField implements Serializable,Cloneable {
         this.autoIncrementName = autoIncrementName;
     }
 
-    public void fillConvertNames(){
+    public void fillConvertNames() {
         //处理类型名
-        StringBuffer buffer = new StringBuffer(type);
-        if(len != null && len > 0){
+        StringBuilder buffer = new StringBuilder(type);
+        if (len != null && len > 0) {
             buffer.append("(").append(len);
-            if(scale != null && scale > 0){
+            if (scale != null && scale > 0) {
                 buffer.append(",").append(scale);
             }
             buffer.append(")");
         }
         typeFullName = buffer.toString();
 
-        if(Boolean.TRUE.equals(primaryKey)){
+        if (Boolean.TRUE.equals(primaryKey)) {
             primaryKeyName = "√";
         }
-        if(Boolean.TRUE.equals(notNull)){
+        if (Boolean.TRUE.equals(notNull)) {
             notNullName = "√";
         }
-        if(Boolean.TRUE.equals(autoIncrement)){
+        if (Boolean.TRUE.equals(autoIncrement)) {
             autoIncrementName = "√";
         }
-        if(StringKit.isNotBlank(refDict)){
-            Dict dict = lookupDict(tableEntity.getDicts(),refDict);
+        if (StringKit.isNotBlank(refDict)) {
+            Dict dict = lookupDict(tableEntity.getDicts(), refDict);
             String dictText = "";
-            if(dict != null){
-                dictText = "<字典:"+dict.getDefKey()+">";
+            if (dict != null) {
+                dictText = "<字典:" + dict.getDefKey() + ">";
             }
-            if(StringKit.isNotBlank(comment)
-                    && comment.indexOf(dictText) < 0
-                    && StringKit.isNotBlank(dictText)){
-                comment += dictText;
-            }else{
+            if (StringKit.isNotBlank(comment)
+                    && !comment.contains(dictText)
+                    && StringKit.isNotBlank(dictText)) {
+                comment += (";" + dictText);
+            } else {
                 comment = dictText;
             }
         }
     }
 
-    public Dict lookupDict(List<Dict> dictList,String dictId){
-        for(Dict dict : dictList){
-            if(dictId.equals(dict.getId())){
+    public Dict lookupDict(List<Dict> dictList, String dictId) {
+        for (Dict dict : dictList) {
+            if (dictId.equals(dict.getId())) {
                 return dict;
             }
         }

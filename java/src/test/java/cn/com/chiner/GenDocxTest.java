@@ -31,12 +31,12 @@ public class GenDocxTest {
     public void genDocxGroupsTest(){
         String[] args =  new String[]{
                 "GenDocx",            //执行什么命令
-                "sinerFile=/Users/asher/workspace/ws-vekai/chiner-java/src/test/resources/siner/电商商城.sinoper.json",  //输入的PDMan文件
-                "docxTpl=/Users/asher/workspace/ws-vekai/chiner-java/src/test/resources/tpl/siner-docx-tpl.docx",      //文档模板文件
+                "sinerFile=/Users/yangsong158/workspace/ws-chiner/chiner-java/src/test/resources/pdma/教学管理系统-标准模板.pdma.json",  //输入的PDMan文件
+                "docxTpl=/Users/yangsong158/workspace/ws-chiner/chiner-java/src/test/resources/tpl/siner-docx-tpl.docx",      //文档模板文件
                 "imgDir=/Users/asher/workspace/ws-vekai/siner-java/src/test/resources/images/shop",                         //图片文件存放目录
                 "imgExt=.png",//图片文件后缀名
-                "outFile=/Users/asher/workspace/ws-vekai/chiner-java/src/test/resources/out/chiner-"+System.nanoTime()+".docx",
-                "out=/Users/asher/workspace/ws-vekai/chiner-java/src/test/resources/out/gendocx-"+System.nanoTime()+".json"
+                "outFile=/Users/yangsong158/workspace/ws-chiner/chiner-java/src/test/resources/out/gendocx-"+System.nanoTime()+".docx",
+                "out=/Users/yangsong158/workspace/ws-chiner/chiner-java/src/test/resources/out/gendocx-"+System.nanoTime()+".json"
         };
         Application.main(args);
     }
@@ -46,7 +46,6 @@ public class GenDocxTest {
 
         String[] args =  new String[]{
                 "GenDocx",            //执行什么命令
-//                "sinerFile=/Users/asher/workspace/ws-vekai/siner-java/src/test/resources/siner/业务配置及调查报告.sinoper.json",  //输入的PDMan文件
 //                "sinerFile=/Users/asher/workspace/ws-vekai/chiner-java/src/test/resources/siner/教学管理系统.chnr.json",  //输入的PDMan文件
                 "sinerFile=/Users/asher/workspace/ws-vekai/chiner-java/src/test/resources/chr/未命名.chnr.json",  //输入的PDMan文件
                 "docxTpl=/Users/asher/workspace/ws-vekai/chiner-java/src/test/resources/tpl/siner-docx-tpl.docx",      //文档模板文件

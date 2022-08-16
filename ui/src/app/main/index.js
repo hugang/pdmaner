@@ -555,7 +555,6 @@ const Index = React.memo(({getUserData, open, openTemplate, config, common, pref
           });
         }
       });
-      //console.log(data);
     }, (file) => {
       const result = type === 'PD' ? (file.name.endsWith('.pdm') || file.name.endsWith('.PDM')) : file.name.endsWith('.sql');
       if (!result) {

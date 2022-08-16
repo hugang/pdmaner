@@ -16,3 +16,8 @@ java -jar chiner-java.jar DBReverseGetTableDDL driver_class_name=com.kingbase8.D
 ```
 java -jar chiner-java.jar ParseDDLToTableImpl ddlFile=/Users/asher/workspace/ws-vekai/chiner-java/src/test/resources/sql/oracle-ddl.sql out=/Users/asher/workspace/ws-vekai/chiner-java/src/test/resources/out/parse-ddl-01.json
 ```
+
+**生成WORD**
+```
+java -jar chiner-java.jar GenDocx sinerFile=/Users/yangsong158/workspace/ws-chiner/chiner-java/src/test/resources/pdma/教学管理系统-标准模板.pdma.json docxTpl=/Users/yangsong158/workspace/ws-chiner/chiner-java/src/test/resources/tpl/siner-docx-tpl.docx imgDir=/Users/asher/Library/Application Support/Electron/temp_img imgExt=.png outFile=/Users/yangsong158/workspace/ws-chiner/chiner-java/src/test/resources/out/gendocx-x.docx out=/Users/yangsong158/workspace/ws-chiner/chiner-java/src/test/resources/out/gendocx-x.json
+```

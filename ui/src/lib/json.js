@@ -363,7 +363,6 @@ export const connectDB = (dataSource, config, params = {}, cmd, cb) => {
     }));
     tempParams.sinerFile = sinerFile;
   }
-  console.log(outFile);
   const getParam = (params) => {
     const paramArray = [];
     Object.keys(params).forEach((p) => {

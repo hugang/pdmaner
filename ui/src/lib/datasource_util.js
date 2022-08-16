@@ -2003,7 +2003,6 @@ export const mergeData = (pre, next, needOld, merge = true) => {
       ...otherData,
     };
   }
-  //console.log(merge ? next : pre);
   return merge ? next : pre;
 };
 

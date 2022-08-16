@@ -18,7 +18,7 @@ export default React.memo(({prefix, defaultValue, title, placeholder, onChange, 
       updateValue(res);
       onChange && onChange(res);
     }).catch((err) => {
-      console.log(err);
+      console.error(err);
     });
   };
   let newValue = value;

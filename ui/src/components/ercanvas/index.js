@@ -785,7 +785,6 @@ export default ({data, dataSource, renderReady, updateDataSource, validateTableS
       dataChange && dataChange(graph.toJSON({diff: true}));
     });
     graph.on('selection:changed', ({ added,removed }) => {
-      console.log(added);
       added.forEach((cell) => {
         if (cell.isNode()) {
           cell.attr('body', {

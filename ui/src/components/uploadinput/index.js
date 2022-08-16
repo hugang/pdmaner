@@ -30,7 +30,7 @@ export default React.memo(({prefix, defaultValue, title, suffix,
         uploadBefore(files[0]).then(() => {
           _upload(files[0]);
         }).catch(() => {
-          console.log('invalid img');
+          console.error('invalid img');
         }).finally(() => {
           const { current } = fileInput;
           current.value = ''; // 重置上传的值
